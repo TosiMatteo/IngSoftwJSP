@@ -1,0 +1,365 @@
+/*------------------------------------------- banner -----------------------------------------------------------------*/
+.banner {
+    background-color: #EFEFEF;;
+}
+
+.sectionTitle {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/*intestazione HTML*/
+h1 {
+    display: block;
+    font-size: 64px;
+    font-weight: 600;
+    text-align:left;
+}
+/*intestazione HTML*/
+h2 {
+    display: block;
+    color: #4F4F4F;
+    font-size: 28px;
+    font-weight: 600;
+    text-align:left;
+}
+
+/*container check+testo*/
+.checkBoxBanner {
+    gap: 16px;
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/*container check*/
+.container {
+    gap: 16px;
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/*immagine check */
+.checkBanner {
+    color: #007FFF;
+    width: 18px;
+    height: 18px;
+}
+
+/*formato testo*/
+.textBanner {
+    font-size: 18px;
+    color: #007FFF;
+}
+
+/*immagine banner */
+.imgBanner {
+    right: 0;
+    top:0;
+    bottom: 0;
+    width: 452px;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/imgBanner.png");
+    background-position: center;
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+    opacity: 90;
+}
+
+/*--------------------------------------------------- HERO ----------------------------------*/
+
+/*1 container testo-chat */
+.hero-chat {
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ------------------- paragrafo ---------------- */
+/*2 container paragrafo chat */
+.containerParagrafo {
+    width: 45%;
+    align-self: stretch;
+}
+
+/*formato testo titolo paragrafo */
+.titolo {
+    color: black;
+    margin-bottom: 16px;
+    font-size: 28px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/*paragrafo*/
+p{
+    margin-bottom: 16px;
+}
+/*testo in grassetto*/
+.bold {
+    font-weight: 600;
+}
+
+/*bottone vai a FAQ*/
+.buttonFAQ {
+    background-color: #EFEFEF;
+    color: black;
+    border:none;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    font-weight: 600;
+    border-radius: 8px;
+    padding:8px 16px;
+    width: auto;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.buttonFAQ:hover {
+    background-color: #C0C0C0;
+}
+
+/*Elenco puntato*/
+ul {
+    padding-left: 15px;
+    list-style-type: disc;
+    list-style-position: outside;
+}
+li {
+    margin-top:8px;
+}
+
+/* ------------------- chat ------------------ */
+.containerChat {
+    width: 45%;
+    height: 528px;
+    box-shadow: 0 0 2px 2px #EFEFEF;
+    border-color: #E1E1E1;
+    border-width: 2px;
+    border-radius: 16px;
+}
+
+.titleChat {
+    gap: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    background-color: #007FFF;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.h2Title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.imgChat {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-self: center;
+}
+.hrDivider{
+    display: none;
+}
+/*------------------------------------------ FORM iniziale chat-----------------------------*/
+
+/*1 container form contenuto*/
+form {
+    gap: 8px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px 32px;
+}
+
+/*2 container form dati da compilare*/
+.containerForm {
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+    overflow: auto;
+    align-items: flex-start;
+    flex-direction: column;
+
+    height: 328px;
+    gap: 16px;
+}
+
+/*3 - container label+input*/
+.inputChat {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+input[type=text],
+input[type=email]{
+    cursor: auto;
+    outline: none;
+    padding: 8px;
+    align-self: stretch;
+    border: 2px solid #E1E1E1;
+    border-radius: 8px;
+}
+input[type=text]:focus,
+input[type=email]:focus{
+    border-color: #2F2F2F;
+}
+
+/*select FORM*/
+select {
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #E1E1E1;
+    border-radius: 8px;
+}
+select:focus {
+    border-color: #2F2F2F;
+}
+
+/*container checkbox+text*/
+.containerCheckbox {
+    gap: 16px;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+}
+/*input type checkbox FORM*/
+input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #E1E1E1;
+    border-radius: 8px;
+}
+
+/* link con sottolineatura*/
+a.linkPrivacy{
+    text-decoration: underline;
+    color: black;
+}
+/*un collegamento che l'utente ha visitato*/
+a.linkPrivacy:visited {
+    text-decoration: underline;
+    color: blue;
+}
+/* un collegamento nel momento in cui viene cliccato*/
+a.linkPrivacy:active {
+    text-decoration: underline;
+    color: blue;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #E1E1E1;
+}
+
+/*input type buttons FORM*/
+input[type=submit] {
+    color: white;
+    background-color: #007FFF;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    align-self: flex-end;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.3s;
+    /*flottante alla destra del contenitore*/
+    float: right;
+}
+input[type=submit]:hover {
+    background-color: #08457E;
+}
+
+/*------------ Per eventuali adattamenti (responsive web design) -------------*/
+
+
+@media(max-width: 1200px) {
+    .containerChat {
+        align-self: center;
+    }
+}
+
+@media(max-width: 991px) {
+    .checkBanner {
+        width: 16px;
+        height: 16px;
+    }
+    .hero-chat {
+        gap: 32px;
+        flex-direction: column;
+    }
+    .containerParagrafo {
+        width: 100%;
+    }
+    .hero-button1 {
+        width: 50%;
+    }
+    .hrDivider {
+        width: 100%;
+        height: 2px;
+        background-color: #EFEFEF;
+    }
+    .containerChat {
+        width: 100%;
+    }
+    .imgBanner{
+        display:none;
+    }
+}
+
+@media(max-width: 767px) {
+
+}
+
+@media(max-width: 479px) {
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 21px;
+    }
+    .textBanner {
+        font-size: 16px;
+    }
+    input[type=submit] {
+        width: 100%;
+    }
+    .buttonFAQ {
+        width: 100%;
+    }
+
+    form {
+        padding: 16px;
+    }
+    .inputChat {
+        width: 100%;
+    }
+}
