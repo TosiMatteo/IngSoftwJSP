@@ -14,26 +14,11 @@ import java.util.List;
 public class RootController {
     @Autowired
     MyService myService;
-    @RequestMapping("/")
-    public String helloWorld() {
-        return "view";
-    }
 
-    @RequestMapping("/2nd")
-    public String secondSubPage() {
-        return "test/list";
-    }
-
-    @RequestMapping({"/testMysql"})
-    public String testMysql(Model model) {
+    @RequestMapping({"/","/supporto"})
+    public String supporto(Model model) {
         model.addAttribute("test", this.myService.getAll());
-        return "testMysql";
-    }
-
-    @RequestMapping({"/view"})
-    public String view(Model model) {
-        model.addAttribute("test", this.myService.getAll());
-        return "view";
+        return "supporto";
     }
 
     @RequestMapping({"/chatta_con_noi"})
@@ -41,6 +26,8 @@ public class RootController {
         model.addAttribute("test", this.myService.getAll());
         return "chatta_con_noi";
     }
+
+
 
 
 
