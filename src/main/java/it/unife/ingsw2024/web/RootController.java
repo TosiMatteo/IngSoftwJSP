@@ -27,8 +27,11 @@ public class RootController {
         return "chatta_con_noi";
     }
 
-
-
+    @RequestMapping({"form"})
+    public String form(Model model) {
+        model.addAttribute("test", this.myService.getAll());
+        return "form";
+    }
 
 
 
