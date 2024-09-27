@@ -45,7 +45,7 @@
                             <span class="textFooter">FAQ - Domande Frequenti</span>
                         </a>
 
-                        <a href="https://www.codecrusaders.com/supporto">
+                        <a href="supporto">
                             <span class="textFooter">Supporto</span>
                         </a>
                     </div>

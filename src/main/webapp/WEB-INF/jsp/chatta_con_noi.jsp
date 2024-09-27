@@ -9,7 +9,6 @@
   <head>
     <title>ChattaConNoi</title>
     <meta charset="utf-8" />
-
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
           data-tag="font"/>
@@ -52,7 +51,7 @@
            viewBox="0 -960 960 960"
            width="48px"
            fill="#EFEFEF">
-        <path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
+        <path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"></path>
       </svg>
     </div>
 
@@ -70,7 +69,7 @@
                  viewBox="0 -960 960 960"
                  width="24px"
                  fill="#EFEFEF">
-              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path>
             </svg>
           </div>
         </div>
@@ -249,84 +248,7 @@
 
 
   <!---------------------------------------------------- FOOTER ------------------------------------------------->
-  <footer>
-    <div class="thq-section-max-width">
-      <div class="footer-content">
+  <%@ include file="../../include/footer.inc" %>
 
-        <div class="footer-container">
-          <img alt="Logo" src="../images/logoHeader.png" class="logoFooter"/>
-          <span class="textMotto">
-                "La nuova era appartiene ai Code Crusaders: Creatori di possibilità infinite"
-              </span>
-        </div>
-
-        <div class="footer-menu">
-          <div class="footer-column">
-
-            <!-- Definisco testo con forte importanza tag<strong>.
-             Il contenuto al suo interno è solitamente visualizzato in grassetto-->
-            <strong>Link</strong>
-            <div class="footer-links">
-              <a href="https://www.codecrusaders.com/home">
-                <span class="textFooter">Home</span>
-              </a>
-              <a href="https://www.codecrusaders.com/messages" >
-                <span class="textFooter">Messaggi</span>
-              </a>
-              <a href="https://www.codecrusaders.com/friends">
-                <span class="textFooter">Amici</span>
-              </a>
-              <a href="https://www.codecrusaders.com/events" >
-                <span class="textFooter">Eventi</span>
-              </a>
-              <a href="https://www.codecrusaders.com/account">
-                <span class="textFooter">Account</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <strong>Assistenza Clienti</strong>
-            <div class="footer-links">
-              <a href="https://www.codecrusaders.com/faq">
-                <span class="textFooter">FAQ - Domande Frequenti</span>
-              </a>
-              <a href="https://www.codecrusaders.com/supporto">
-                <span class="textFooter">Supporto</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <strong>Termini Legali</strong>
-            <div class="footer-links">
-              <a href="https://www.codecrusaders.com/termini&condizioni">
-                <span class="textFooter">Termini &amp; Condizioni</span>
-              </a>
-              <a href="https://www.codecrusaders.com/informativa-privacy">
-                <span class="textFooter">Informativa sulla Privacy</span>
-              </a>
-              <a href="https://www.codecrusaders.com/cookie">
-                <span class="textFooter">Cookie</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="footerCredits">
-        <div class="divider"></div>
-        <div>
-              <span class="footerContentCredits">
-                Copyright ⓒ 2024 Code Crusaders Italia. Tutti i diritti riservati.
-              </span>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <script> </script>
   </body>
 </html>

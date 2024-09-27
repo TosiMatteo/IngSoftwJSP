@@ -23,7 +23,7 @@
                 <h1>Come possiamo aiutarti?</h1>
                 <div class="containerBarra">
                     <img alt="image" src="../../images/ricerca.png" class="imageSearch"/>
-                    <input type="search" name="search" placeholder="Cerca negli articoli dell’assistenza..." id="search">
+                    <label for="search"></label><input type="search" name="search" placeholder="Cerca negli articoli dell’assistenza..." id="search">
                 </div>
             </header>
 
