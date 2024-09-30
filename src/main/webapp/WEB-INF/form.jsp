@@ -226,7 +226,7 @@
       </div>
 
       <!---------------------------------------------------- FOOTER ------------------------------------------------->
-      <%@ include file="../../include/footer.inc" %>
+      <%@ include file="../include/footer.inc" %>
 
   </body>
 </html>

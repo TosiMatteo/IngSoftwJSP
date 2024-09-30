@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <%@ include file="../../include/SupportoHead.inc" %>
+    <%@ include file="../include/SupportoHead.inc" %>
 </head>
 
 <body>
 
-<%@ include file="../../include/SupportoHead.inc"%>
+<%@ include file="../include/SupportoHead.inc"%>
 
 <main>
     <!-- Features1 Section -->
@@ -126,7 +126,7 @@
 
 </main>
 
-<%@ include file="../../include/footer.inc" %>
+<%@ include file="../include/footer.inc" %>
 
 </body>
 </html>
