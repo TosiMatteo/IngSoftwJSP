@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <%@ include file="../include/SupportoHead.inc" %>
 </head>
@@ -22,7 +23,7 @@
             <header class="sectionTitle">
                 <h1>Come possiamo aiutarti?</h1>
                 <div class="containerBarra">
-                    <img alt="image" src="../../images/ricerca.png" class="imageSearch"/>
+                    <img alt="image" src="../images/ricerca.png" class="imageSearch"/>
                     <label for="search"></label><input type="search" name="search" placeholder="Cerca negli articoli dell’assistenza..." id="search">
                 </div>
             </header>
@@ -32,7 +33,7 @@
                 <h2 class="h2Feature">Argomenti popolari</h2>
                 <div class="thq-grid-3">
                     <button onclick="document.location='https://www.codecrusaders.com/gestione-account/impostazioni-account'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/account.png" class="imagefeature"/>
+                        <img alt="image" src="../images/account.png" class="imagefeature"/>
                         <h4>Impostazioni Account</h4>
                         <span class="textButton">
                             Modifica le impostazioni, gestisci le notifiche, scopri di più sulle modifiche al nome e altro ancora
@@ -40,7 +41,7 @@
                     </button>
 
                     <button onclick="document.location='https://www.codecrusaders.com/gestione-account/accesso'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/chiave.png" class="imagefeature"/>
+                        <img alt="image" src="../images/chiave.png" class="imagefeature"/>
                         <h4>Accesso e Password</h4>
                         <span class="textButton">
                             Risolvi i problemi di accesso e scopri come modificare o reimpostare la password
@@ -48,7 +49,7 @@
                     </button>
 
                     <button onclick="document.location='https://www.codecrusaders.com/privacy-sicurezza-report/privacy'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/lucchetto.png" class="imagefeature"/>
+                        <img alt="image" src="../images/lucchetto.png" class="imagefeature"/>
                         <h4>Privacy e Sicurezza</h4>
                         <span class="textButton">
                             Controlla chi può vedere quello che condividi e garantisci maggiore protezione
@@ -56,7 +57,7 @@
                     </button>
 
                     <button onclick="document.location='https://www.codecrusaders.com/funzioni-del-sito/notifiche'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/notifica.png" class="imagefeature"/>
+                        <img alt="image" src="../images/notifica.png" class="imagefeature"/>
                         <h4>Notifiche</h4>
                         <span class="textButton">
                             Scegli quali notifiche vuoi ricevere
@@ -64,7 +65,7 @@
                     </button>
 
                     <button onclick="document.location='https://www.codecrusaders.com/funzioni-del-sito/eventi'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/evento.png" class="imagefeature"/>
+                        <img alt="image" src="../images/evento.png" class="imagefeature"/>
                         <h4>Eventi</h4>
                         <span class="textButton">
                             Crea un evento, controlla chi vede il tuo evento o vi partecipa
@@ -72,7 +73,7 @@
                     </button>
 
                     <button onclick="document.location='https://www.codecrusaders.com/funzioni-del-sito/gruppi'" class="buttonFeatureArg">
-                        <img alt="image" src="../../images/gruppo.png" class="imagefeature"/>
+                        <img alt="image" src="../images/gruppo.png" class="imagefeature"/>
                         <h4>Gruppi</h4>
                         <span class="textButton">
                             Scopri come creare, gestire e utilizzare i gruppi
