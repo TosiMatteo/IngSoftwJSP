@@ -8,13 +8,13 @@
 
   <head>
 
-    <%@ include file="../include/ChattaHead.inc"%>
-    
+    <%@ include file="../include/Head.inc"%>
+    <link rel="stylesheet" href="css/form.css" type="text/css">
   </head>
 
   <body>
 
-      <%@include file="../include/header.inc"%>
+      <%@include file="../include/Top.inc"%>
 
       <!---------------------------------------------- CONTENUTO ----------------------------------------------------->
 
@@ -148,7 +148,7 @@
       </div>
 
       <!---------------------------------------------------- FOOTER ------------------------------------------------->
-      <%@ include file="../include/footer.inc" %>
+      <%@ include file="../include/Footer.inc" %>
 
   </body>
 </html>

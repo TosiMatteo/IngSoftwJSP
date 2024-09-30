@@ -8,13 +8,13 @@
 
   <head>
 
-    <%@ include file="../include/ChattaHead.inc" %>
-
+    <%@ include file="../include/Head.inc" %>
+    <link rel="stylesheet" href="css/chatta_con_noi.css" type="text/css">
   </head>
 
   <body>
 
-  <%@ include file="../include/header.inc"%>
+  <%@ include file="../include/Top.inc"%>
 
   <!------------------------------- banner ----------------------------->
   <div class="banner thq-section-padding">
@@ -167,7 +167,7 @@
 
 
   <!---------------------------------------------------- FOOTER ------------------------------------------------->
-  <%@ include file="../include/footer.inc" %>
+  <%@ include file="../include/Footer.inc" %>
 
   </body>
 </html>

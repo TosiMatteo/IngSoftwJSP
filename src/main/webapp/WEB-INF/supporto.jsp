@@ -7,12 +7,14 @@
 <html lang="it">
 
 <head>
-    <%@ include file="../include/SupportoHead.inc" %>
+    <%@ include file="../include/Head.inc" %>
+    <link rel="stylesheet" href="css/supporto.css" type="text/css">
+
 </head>
 
 <body>
 
-<%@ include file="../include/header.inc"%>
+<%@ include file="../include/Top.inc"%>
 
 <main>
     <!-- Features1 Section -->
@@ -127,7 +129,7 @@
 
 </main>
 
-<%@ include file="../include/footer.inc" %>
+<%@ include file="../include/Footer.inc" %>
 
 </body>
 </html>
