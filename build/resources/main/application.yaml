@@ -3,7 +3,7 @@ spring:
     name: IngSw2024-jsp-only
   mvc:
     view:
-      prefix: /WEB-INF/jsp/
+      prefix: /WEB-INF/
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

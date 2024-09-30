@@ -11,7 +11,7 @@
 
 <body>
 
-<%@ include file="../include/SupportoHead.inc"%>
+<%@ include file="../include/header.inc"%>
 
 <main>
     <!-- Features1 Section -->
