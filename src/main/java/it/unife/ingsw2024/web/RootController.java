@@ -33,10 +33,10 @@ public class RootController {
         return "form";
     }
 
-    @RequestMapping({"/Helpdesk"})
+    @RequestMapping({"/helpdesk"})
     public String Helpdesk(Model model) {
         model.addAttribute("test", this.myService.getAll());
-        return "Helpdesk";
+        return "helpdesk";
     }
 
 
