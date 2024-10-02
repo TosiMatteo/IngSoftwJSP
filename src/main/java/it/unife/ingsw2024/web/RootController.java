@@ -1,7 +1,7 @@
 package it.unife.ingsw2024.web;
 
-import it.unife.ingsw2024.models.MyTable;
-import it.unife.ingsw2024.services.MyService;
+import it.unife.ingsw2024.models.User;
+import it.unife.ingsw2024.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,35 +13,41 @@ import java.util.List;
 @Controller
 public class RootController {
     @Autowired
-    MyService myService;
+    UserService userService;
 
+    /* metodi per il indirizzare le pagine html */
     @RequestMapping({"/","/supporto"})
     public String supporto(Model model) {
-        model.addAttribute("test", this.myService.getAll());
+        model.addAttribute("test", this.userService.getAll());
         return "supporto";
     }
 
     @RequestMapping({"/chatta_con_noi"})
     public String chattaConNoi(Model model) {
-        model.addAttribute("test", this.myService.getAll());
+        model.addAttribute("test", this.userService.getAll());
         return "chatta_con_noi";
     }
 
     @RequestMapping({"form"})
     public String form(Model model) {
-        model.addAttribute("test", this.myService.getAll());
+        model.addAttribute("test", this.userService.getAll());
         return "form";
     }
 
     @RequestMapping({"/helpdesk"})
     public String Helpdesk(Model model) {
-        model.addAttribute("test", this.myService.getAll());
+        model.addAttribute("test", this.userService.getAll());
         return "helpdesk";
     }
+    /* metodi per il indirizzare le pagine html */
 
 
-    @RequestMapping({"/testWithElements"})
-    public List<MyTable> addElements() {
-        return this.myService.addElements();
-    }
+
+
+
+   /* @RequestMapping({"/testWithElements"})
+    public List<User> addElements() {
+        return this.userService.addElements();
+    } */
+
 }
