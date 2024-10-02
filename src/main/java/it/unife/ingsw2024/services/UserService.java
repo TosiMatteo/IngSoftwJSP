@@ -21,22 +21,22 @@ public class UserService {
     }
 
     /* Metodo che effettua una select by Id sulla tabella Mysql */
-    public User getById(long id) {
+    public User getById(int id) {
         Optional<User> user = userRepository.findById(id);
         return user.orElse(null);
     }
 
     /* Metodo che salva un record sulla tabella  */
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public void addUser(User user) {
+        userRepository.save(user);
     }
 
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public void updateUser(int id, User user) {
+        userRepository.save(user);
     }
 
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+    public void deleteUser(int id) {
+        userRepository.deleteById(id);
     }
 
     /* Metodo che inserisce dati e li recupera da un db H2 (in assenza di mysql)

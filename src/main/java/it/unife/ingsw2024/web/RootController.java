@@ -3,46 +3,41 @@ package it.unife.ingsw2024.web;
 import it.unife.ingsw2024.models.User;
 import it.unife.ingsw2024.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/api/users") // Prefisso per tutti gli endpoint
 public class RootController {
+
     @Autowired
     UserService userService;
 
-    /* metodi per il indirizzare le pagine html */
-    @RequestMapping({"/","/supporto"})
-    public String supporto(Model model) {
-        model.addAttribute("test", this.userService.getAll());
-        return "supporto";
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAll();
     }
 
-    @RequestMapping({"/chatta_con_noi"})
-    public String chattaConNoi(Model model) {
-        model.addAttribute("test", this.userService.getAll());
-        return "chatta_con_noi";
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable int id) {
+        return userService.getById(id);
     }
 
-    @RequestMapping({"form"})
-    public String form(Model model) {
-        model.addAttribute("test", this.userService.getAll());
-        return "form";
+    @PostMapping
+    public void addUser(@RequestBody User user) {
+        userService.addUser(user);
     }
 
-    @RequestMapping({"/helpdesk"})
-    public String Helpdesk(Model model) {
-        model.addAttribute("test", this.userService.getAll());
-        return "helpdesk";
+    @PutMapping("/{id}")
+    public void updateUser(@PathVariable int id, @RequestBody User user) {
+        userService.updateUser(id, user);
     }
-    /* metodi per il indirizzare le pagine html */
 
-
-
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
+    }
 
 
    /* @RequestMapping({"/testWithElements"})

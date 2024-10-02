@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id /* Annotation per definire la primary key della tabella  */
     @GeneratedValue
-    private Long id;
+    private int id;
     private String firstname;
     private String lastname;
     private String email;
