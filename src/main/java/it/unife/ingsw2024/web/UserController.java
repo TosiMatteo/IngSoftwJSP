@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users") // Prefisso per tutti gli endpoint
-public class RootController {
+public class UserController {
 
     @Autowired
     UserService userService;
