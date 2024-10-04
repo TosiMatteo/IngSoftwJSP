@@ -59,24 +59,24 @@
           <label for="formOptions1">Tematica</label>
           <select id="formOptions1" name="selectTematica" required>
             <option value="" disabled selected>Seleziona</option>
-            <option value="Option 1">Funzioni del sito</option>
-            <option value="Option 2">Gestione dell'account</option>
-            <option value="Option 3">Privacy, sicurezza e report</option>
-            <option value="Option 4">Condizioni e normative</option>
+            <option value="Funzioni del sito">Funzioni del sito</option>
+            <option value="Gestione dell'account">Gestione dell'account</option>
+            <option value="Privacy, sicurezza e report">Privacy, sicurezza e report</option>
+            <option value="Condizioni e normative">Condizioni e normative</option>
           </select>
         </div>
         <div class="inputForm">
           <label for="formOptions2">Argomento</label>
           <select id="formOptions2" name="selectArgomento" required>
             <option value="" disabled selected>Seleziona</option>
-            <option value="Option 1">Il tuo profilo</option>
-            <option value="Option 2">Aggiunta di amici</option>
-            <option value="Option 3">Impostazioni account</option>
-            <option value="Option 4">Accesso e download delle tue informazioni</option>
-            <option value="Option 5">La tua privacy</option>
-            <option value="Option 6">Protezione dell'account</option>
-            <option value="Option 7">Segnalazione di contenuti offensivi</option>
-            <option value="Option 8">Segnalare un problema</option>
+            <option value="Il tuo profilo">Il tuo profilo</option>
+            <option value="Aggiunta di amici">Aggiunta di amici</option>
+            <option value="Impostazioni account">Impostazioni account</option>
+            <option value="Accesso e download delle tue informazioni">Accesso e download delle tue informazioni</option>
+            <option value="La tua privacy">La tua privacy</option>
+            <option value="Protezione dell'account">Protezione dell'account</option>
+            <option value="Segnalazione di contenuti offensivi">Segnalazione di contenuti offensivi</option>
+            <option value="Segnalare un problema">Segnalare un problema</option>
           </select>
         </div>
       </fieldset>
@@ -110,6 +110,49 @@
 </main>
 
 <%@ include file="../include/Footer.inc" %>
+
+<script>
+  // Aggiunge un listener per l'evento di invio del modulo
+  document.getElementById('form').addEventListener('submit', function(event) {
+
+    // Previene l'invio predefinito del modulo (il refresh della pagina)
+    event.preventDefault();
+
+    // Crea un oggetto formData per raccogliere i dati del modulo
+    const formData = {
+      firstname: document.getElementById('formNome').value, // Ottiene il valore del campo "Nome"
+      surname: document.getElementById('formCognome').value, // Ottiene il valore del campo "Cognome"
+      email: document.getElementById('formEmail').value, // Ottiene il valore del campo "Email"
+      phone: document.getElementById('formCellulare').value // Ottiene il valore del campo "Telefono"
+    };
+
+    // Invia i dati al server utilizzando fetch
+    fetch('http://localhost:8080/api/users', {
+      method: 'POST', // Indica il metodo HTTP da utilizzare
+      headers: {
+        'Content-Type': 'application/json' // Specifica che il contenuto della richiesta è in formato JSON
+      },
+      body: JSON.stringify(formData) // Converte l'oggetto formData in una stringa JSON
+    })
+            // Gestisce la risposta dal server
+            .then(response => {
+              // Controlla se la risposta non è ok (stato HTTP 2xx)
+              if (!response.ok) {
+                throw new Error('Errore nella risposta del server'); // Lancia un errore se la risposta non è corretta
+              }
+              return response.json(); // Converte la risposta in formato JSON
+            })
+            .then(data => {
+              // Visualizza i dati ricevuti dal server nella console
+              console.log('Utente aggiunto con successo:', data);
+            })
+            .catch(error => {
+              // Gestisce gli errori che possono verificarsi durante la richiesta
+              console.error('Errore:', error);
+            });
+  });
+</script>
+
 
 </body>
 </html>
