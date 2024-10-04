@@ -3,6 +3,9 @@ package it.unife.ingsw2024.web;
 import it.unife.ingsw2024.models.User;
 import it.unife.ingsw2024.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +31,9 @@ public class UserController {
 
     // Gestisce le richieste POST su "/api/users" per aggiungere un nuovo utente.
     @PostMapping
-    public void addUser(@RequestBody User user) { // @RequestBody estrae il corpo della richiesta come un oggetto User.
+    public ResponseEntity<User> addUser(@RequestBody User user) { // @RequestBody estrae il corpo della richiesta come un oggetto User.
         userService.addUser(user); // Chiama il servizio per aggiungere un nuovo utente.
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     // Gestisce le richieste PUT su "/api/users/{id}" per aggiornare un utente esistente.

@@ -9,4 +9,6 @@
 <!-- External Style Information-->
 <link rel="stylesheet" href="css/style.css" type="text/css">
 
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
 

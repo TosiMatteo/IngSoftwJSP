@@ -26,9 +26,9 @@
     </header>
 
     <!-- Form contatto -->
-    <form name="form" method="post" action="">
+    <form id="form" name="form" method="post" action="/api/users">
 
-      <!-- Raggruppamento di input correlati -->
+    <!-- Raggruppamento di input correlati -->
       <fieldset class="container">
         <legend>Dati Personali</legend>
         <div class="inputForm">
@@ -106,6 +106,11 @@
       <input type="submit" value="Invia la tua richiesta">
     </form>
 
+    <!-- Div per il messaggio di conferma -->
+    <div id="successMessage" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+      Richiesta presa in carico con successo!
+    </div>
+
   </section>
 </main>
 
@@ -134,25 +139,38 @@
       },
       body: JSON.stringify(formData) // Converte l'oggetto formData in una stringa JSON
     })
-            // Gestisce la risposta dal server
             .then(response => {
-              // Controlla se la risposta non è ok (stato HTTP 2xx)
-              if (!response.ok) {
-                throw new Error('Errore nella risposta del server'); // Lancia un errore se la risposta non è corretta
+              // Controlla il codice di stato HTTP
+              if (response.status === 204) {
+                console.log('Utente aggiunto con successo, ma nessun contenuto restituito.');
+                return null; // Nessun contenuto, non parsare JSON
+              } else if (!response.ok) {
+                throw new Error('Errore nella risposta del server: ' + response.status);
               }
-              return response.json(); // Converte la risposta in formato JSON
+              return response.json(); // Parsare la risposta se esiste
             })
             .then(data => {
-              // Visualizza i dati ricevuti dal server nella console
-              console.log('Utente aggiunto con successo:', data);
+              if (data) {
+                console.log('Utente aggiunto con successo:', data);
+              }
+
+              // Resetta il form
+              document.getElementById('form').reset();
+
+              // Mostra il messaggio di successo
+              document.getElementById('successMessage').style.display = 'block';
+
+              // Nascondi il messaggio dopo 5 secondi
+              setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+              }, 5000);
             })
             .catch(error => {
-              // Gestisce gli errori che possono verificarsi durante la richiesta
               console.error('Errore:', error);
             });
   });
-</script>
 
+</script>
 
 </body>
 </html>
