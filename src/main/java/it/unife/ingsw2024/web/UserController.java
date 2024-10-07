@@ -22,7 +22,7 @@ public class UserController {
 
     // Gestisce le richieste GET su "/api/users/{id}" e restituisce un utente specifico in base all'ID.
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable int id) { // @PathVariable estrae il valore di {id} dall'URL.
+    public User getUserById(@PathVariable int id) { // @PathVariable estrae il valore di {id} dall' URL.
         return userService.getById(id); // Chiama il servizio per ottenere un utente specifico.
     }
 

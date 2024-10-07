@@ -1,30 +1,29 @@
 package it.unife.ingsw2024.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-/* Modello della tabella
-* Le annotation indicano che questa classe è un entity bean,
-* mappa una tabella che ha un nome fisico "my_table",
-* che i costruttori sono generici e auto creati dal plugin lombok,
-* e che lombok creerà anche tutti i getter e setter */
+
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    @Id /* Annotation per definire la primary key della tabella  */
-    @GeneratedValue
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generazione automatica dell'ID
     private int id;
+
     private String firstname;
-    private String lastname;
+    private String surname;
     private String email;
-    private String password;
     private String phone;
 
+    // Relazione One-to-Many con Ticket
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // Un utente può avere molti ticket
+    private List<Ticket> tickets;
 }
