@@ -107,7 +107,7 @@
     </form>
 
     <!-- Div per il messaggio di conferma -->
-    <div id="successMessage" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+    <div id="successMessage">
       Richiesta presa in carico con successo!
     </div>
 
@@ -119,57 +119,97 @@
 <script>
   // Aggiunge un listener per l'evento di invio del modulo
   document.getElementById('form').addEventListener('submit', function(event) {
-
-    // Previene l'invio predefinito del modulo (il refresh della pagina)
+    // Previene l'invio predefinito del modulo (cioè il ricaricamento della pagina)
     event.preventDefault();
 
-    // Crea un oggetto formData per raccogliere i dati del modulo
-    const formData = {
-      firstname: document.getElementById('formNome').value, // Ottiene il valore del campo "Nome"
-      surname: document.getElementById('formCognome').value, // Ottiene il valore del campo "Cognome"
-      email: document.getElementById('formEmail').value, // Ottiene il valore del campo "Email"
-      phone: document.getElementById('formCellulare').value // Ottiene il valore del campo "Telefono"
+    // Crea un oggetto 'userData' con i dati dell'utente inseriti nel modulo
+    const userData = {
+      firstname: document.getElementById('formNome').value, // Nome
+      surname: document.getElementById('formCognome').value, // Cognome
+      email: document.getElementById('formEmail').value,     // Email
+      phone: document.getElementById('formCellulare').value   // Numero di cellulare
     };
 
-    // Invia i dati al server utilizzando fetch
+    // Crea un oggetto 'ticketData' con i dati del ticket
+    const ticketData = {
+      topic: document.getElementById('formOptions1').value, // Argomento del ticket
+      argument: document.getElementById('formOptions2').value, // Dettaglio del ticket
+      detail: document.getElementById('formMessage').value     // Messaggio dettagliato
+    };
+
+    // Invia i dati dell'utente al server per la creazione o verifica
     fetch('http://localhost:8080/api/users', {
-      method: 'POST', // Indica il metodo HTTP da utilizzare
+      method: 'POST', // Metodo di richiesta POST
       headers: {
-        'Content-Type': 'application/json' // Specifica che il contenuto della richiesta è in formato JSON
+        'Content-Type': 'application/json' // Tipo di contenuto JSON
       },
-      body: JSON.stringify(formData) // Converte l'oggetto formData in una stringa JSON
+      body: JSON.stringify(userData) // Converti 'userData' in stringa JSON
     })
             .then(response => {
-              // Controlla il codice di stato HTTP
-              if (response.status === 204) {
-                console.log('Utente aggiunto con successo, ma nessun contenuto restituito.');
-                return null; // Nessun contenuto, non parsare JSON
-              } else if (!response.ok) {
+              // Controlla il codice di stato della risposta
+              if (response.status === 999) {
+                return response.text(); // Se l'utente esiste, restituisce l'ID dell'utente come testo
+              } else if (response.status === 201) {
+                return response.json(); // Se l'utente è stato creato, restituisce l'oggetto utente
+              } else {
+                // Se il codice di stato non è 999 né 201, genera un errore
                 throw new Error('Errore nella risposta del server: ' + response.status);
               }
-              return response.json(); // Parsare la risposta se esiste
             })
             .then(data => {
-              if (data) {
-                console.log('Utente aggiunto con successo:', data);
+              let userId; // Variabile per memorizzare l'ID dell'utente
+              if (typeof data === 'string') {
+                userId = data; // Se la risposta è una stringa, è l'ID dell'utente esistente
+              } else {
+                userId = data.id; // Altrimenti, ottieni l'ID dal nuovo oggetto utente
               }
 
-              // Resetta il form
-              document.getElementById('form').reset();
+              // Controlla se userId è valido
+              if (!userId) {
+                console.error('Errore: userId non valido:', userId); // Logga un errore se userId non è valido
+                return; // Esci dalla funzione se userId non è valido
+              }
 
-              // Mostra il messaggio di successo
-              document.getElementById('successMessage').style.display = 'block';
+              // Aggiungi l'ID dell'utente all'oggetto 'ticketData'
+              ticketData.user = { id: userId };
 
-              // Nascondi il messaggio dopo 5 secondi
-              setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-              }, 5000);
+              // Invia i dati del ticket al server
+              fetch('http://localhost:8080/api/tickets', {
+                method: 'POST', // Metodo di richiesta POST
+                headers: {
+                  'Content-Type': 'application/json' // Tipo di contenuto JSON
+                },
+                body: JSON.stringify(ticketData) // Converti 'ticketData' in stringa JSON
+              })
+                      .then(ticketResponse => {
+                        // Controlla se la risposta è corretta
+                        if (!ticketResponse.ok) {
+                          throw new Error('Errore durante la creazione del ticket: ' + ticketResponse.status);
+                        }
+                        console.log('Ticket creato con successo'); // Messaggio di successo
+                        document.getElementById('form').reset(); // Ripristina il modulo
+                        document.getElementById('successMessage').style.display = 'block'; // Mostra il messaggio di successo
+                        setTimeout(() => {
+                          document.getElementById('successMessage').style.display = 'none'; // Nascondi il messaggio dopo 5 secondi
+                        }, 5000);
+                      })
+                      .catch(error => {
+                        console.error('Errore nella creazione del ticket:', error); // Logga un errore se la creazione del ticket fallisce
+                      });
             })
             .catch(error => {
-              console.error('Errore:', error);
+              console.error('Errore:', error); // Logga un errore se la richiesta iniziale fallisce
             });
   });
+  /*
+  Spiegazione generale
 
+  Invio del modulo: Quando il modulo viene inviato, il codice previene il comportamento predefinito (il ricaricamento della pagina).
+  Raccolta dati: Vengono raccolti i dati dell'utente e del ticket dai campi del modulo.
+  Invio dei dati: I dati dell'utente vengono inviati al server.
+  A seconda della risposta, viene gestita la logica per determinare se l'utente esiste già o se è stato creato un nuovo utente.
+  Creazione del ticket: Dopo aver ottenuto un userId valido, il codice invia i dati del ticket al server e gestisce la risposta, mostrando un messaggio di successo se il ticket è creato con successo.
+   */
 </script>
 
 </body>

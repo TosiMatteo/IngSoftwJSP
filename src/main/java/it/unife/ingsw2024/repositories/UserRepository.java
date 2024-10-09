@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 /* Classe che definisce il repository (database)  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-
+    User findByEmail(String email);  // Definisce un metodo di ricerca per email
 }
