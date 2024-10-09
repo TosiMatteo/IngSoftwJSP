@@ -21,7 +21,7 @@ public class UserService {
     }
 
     /* Restituisce un utente specifico in base all'ID dalla tabella MySQL. */
-    public User getById(int id) {
+    public User getUserById(int id) {
         Optional<User> user = userRepository.findById(id); // Trova l'utente tramite l'ID.
         return user.orElse(null); // Restituisce l'utente se esiste, altrimenti null.
     }
@@ -40,6 +40,11 @@ public class UserService {
     public void deleteUser(int id) {
         userRepository.deleteById(id); // Elimina un record utente dal database.
     }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
 
     /* Metodo per inserire dati e recuperarli da un database H2 (alternativa a MySQL, usato per test).
     public List<User> addElements() {

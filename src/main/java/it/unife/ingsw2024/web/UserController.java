@@ -4,7 +4,6 @@ import it.unife.ingsw2024.models.User;
 import it.unife.ingsw2024.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,15 +25,25 @@ public class UserController {
     // Gestisce le richieste GET su "/api/users/{id}" e restituisce un utente specifico in base all'ID.
     @GetMapping("/{id}")
     public User getUserById(@PathVariable int id) { // @PathVariable estrae il valore di {id} dall' URL.
-        return userService.getById(id); // Chiama il servizio per ottenere un utente specifico.
+        return userService.getUserById(id); // Chiama il servizio per ottenere un utente specifico.
     }
 
     // Gestisce le richieste POST su "/api/users" per aggiungere un nuovo utente.
     @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody User user) { // @RequestBody estrae il corpo della richiesta come un oggetto User.
-        userService.addUser(user); // Chiama il servizio per aggiungere un nuovo utente.
+    public ResponseEntity<?> addUser(@RequestBody User user) {
+        // Controlla se esiste un utente con la stessa email
+        User existingUser = userService.getUserByEmail(user.getEmail());
+
+        if (existingUser != null) {
+            // Restituisce il codice 999 e l'ID dell'utente esistente
+            return ResponseEntity.status(999).body(existingUser.getId());
+        }
+
+        // Se l'email non esiste, aggiunge il nuovo utente
+        userService.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+
 
     // Gestisce le richieste PUT su "/api/users/{id}" per aggiornare un utente esistente.
     @PutMapping("/{id}")
