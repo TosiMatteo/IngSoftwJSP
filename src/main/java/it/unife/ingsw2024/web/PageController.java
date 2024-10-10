@@ -30,9 +30,9 @@ public class PageController {
         return "form";
     }
 
-    @RequestMapping("/helpdesk")
+    @RequestMapping("/homeDesk")
     public String helpdesk(Model model) {
         model.addAttribute("test", this.userService.getAll());
-        return "helpdesk";
+        return "homeDesk";
     }
 }
