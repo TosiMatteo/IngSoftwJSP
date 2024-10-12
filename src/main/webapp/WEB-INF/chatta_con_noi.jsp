@@ -83,34 +83,49 @@
           <img src="../images/chatChat.png" class="imgChat" alt="Icona chat" />
         </div>
 
-        <form name="formChat" action="" method="post">
+        <form name="formChat" id="formChat" action="" method="post">
           <div class="containerForm">
             <span>Compila la richiesta e avvia la conversazione con l'operatore selezionando "Inizia chat".</span>
 
             <div class="inputChat">
-              <label for="formNome2">Nome</label>
-              <input type="text" id="formNome2" name="nome" required maxlength="15" class="textinput" aria-required="true" aria-label="Inserisci il tuo nome">
+              <label for="formNome">Nome</label>
+              <input type="text" id="formNome" name="nome" required maxlength="15" class="textinput" aria-required="true" aria-label="Inserisci il tuo nome">
             </div>
 
             <div class="inputChat">
-              <label for="formCognome2">Cognome</label>
-              <input type="text" id="formCognome2" name="cognome" required maxlength="15" class="textinput" aria-required="true" aria-label="Inserisci il tuo cognome">
+              <label for="formCognome">Cognome</label>
+              <input type="text" id="formCognome" name="cognome" required maxlength="15" class="textinput" aria-required="true" aria-label="Inserisci il tuo cognome">
             </div>
 
             <div class="inputChat">
-              <label for="formEmail2">Email</label>
-              <input type="email" id="formEmail2" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
+              <label for="formEmail">Email</label>
+              <input type="email" id="formEmail" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
             </div>
 
             <div class="inputChat">
-              <label for="formOptions3">Tematica</label>
-              <select id="formOptions3" name="tematica" required aria-required="true" aria-label="Seleziona la tematica">
+              <label for="formTopic">Tematica</label>
+              <select id="formTopic" name="tematica" required aria-required="true" aria-label="Seleziona la tematica">
                 <option value="" disabled selected>Seleziona</option>
-                <option value="Option 1">Funzioni del sito</option>
-                <option value="Option 2">Gestione dell'account</option>
-                <option value="Option 3">Privacy, sicurezza e report</option>
-                <option value="Option 4">Condizioni e normative</option>
-                <option value="Option 5">Altro</option>
+                <option value="Funzioni del sito">Funzioni del sito</option>
+                <option value="Gestione dell'account">Gestione dell'account</option>
+                <option value="Privacy, sicurezza e report">Privacy, sicurezza e report</option>
+                <option value="Condizioni e normative">Condizioni e normative</option>
+                <option value="Altro">Altro</option>
+              </select>
+            </div>
+
+            <div class="inputChat">
+              <label for="formArgument">Argomento</label>
+              <select id="formArgument" name="argomento" required aria-required="true" aria-label="Seleziona l'argomento">
+                <option value="" disabled selected>Seleziona</option>
+                <option value="Il tuo profilo">Il tuo profilo</option>
+                <option value="Aggiunta di amici">Aggiunta di amici</option>
+                <option value="Impostazioni account">Impostazioni account</option>
+                <option value="Accesso e download delle tue informazioni">Accesso e download delle tue informazioni</option>
+                <option value="La tua privacy">La tua privacy</option>
+                <option value="Protezione dell'account">Protezione dell'account</option>
+                <option value="Segnalazione di contenuti offensivi">Segnalazione di contenuti offensivi</option>
+                <option value="Segnalare un problema">Segnalare un problema</option>
               </select>
             </div>
 
@@ -128,12 +143,20 @@
 
           <input type="submit" value="Inizia chat" aria-label="Inizia chat con il supporto">
         </form>
+
+        <!-- Div per il messaggio di conferma -->
+        <div id="successMessage">
+          Richiesta presa in carico con successo!
+        </div>
+
       </div>
     </article>
   </section>
 </main>
 
 <%@ include file="../include/Footer.inc" %>
+
+<script src="../javascript/InsertChat.js"></script>
 
 </body>
 </html>
