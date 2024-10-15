@@ -34,16 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = {
                 firstname: nome.value, // Nome
                 surname: cognome.value, // Cognome
-                email: email.value,     // Email
-                phone: cellulare.value   // Numero di cellulare
+                email: email.value.trim(),     // Email
+                phone: cellulare.value.trim()   // Numero di cellulare
             };
 
             // Crea un oggetto 'ticketData' con i dati del ticket
             const ticketData = {
-                topic: topic.value, // Argomento del ticket
-                argument: argument.value, // Dettaglio del ticket
-                detail: message.value     // Messaggio dettagliato
+                topic: topic.value, // Topic del ticket
+                argument: argument.value, // Argomento del ticket
+                detail: message.value     // Dettagli del ticket
             };
+
+            // Verifica se i campi obbligatori non sono vuoti
+            if (!userData.firstname || !userData.surname || !userData.email || !userData.phone || !ticketData.topic || !ticketData.argument) {
+                console.error('Errore: tutti i campi obbligatori devono essere compilati.');
+                return;
+            }
 
             // Invia i dati dell'utente al server per la creazione o verifica
             fetch('http://localhost:8080/api/users', {
