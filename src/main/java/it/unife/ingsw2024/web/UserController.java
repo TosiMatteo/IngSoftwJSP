@@ -56,5 +56,4 @@ public class UserController {
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id); // Chiama il servizio per eliminare l'utente con l'ID specificato.
     }
-
 }
