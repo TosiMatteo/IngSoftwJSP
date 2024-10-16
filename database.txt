@@ -42,8 +42,8 @@ DROP TABLE IF EXISTS `ticket`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ticket` (
 `number` int NOT NULL AUTO_INCREMENT,
-`topic` varchar(24) NOT NULL,
-`argument` varchar(24) NOT NULL,
+`topic` varchar(50) NOT NULL,
+`argument` varchar(50) NOT NULL,
 `detail` varchar(500) NOT NULL,
 `progress` int NOT NULL DEFAULT '0',
 `date` date DEFAULT NULL,
