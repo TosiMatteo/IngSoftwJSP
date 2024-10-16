@@ -45,13 +45,4 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-
-    /* Metodo per inserire dati e recuperarli da un database H2 (alternativa a MySQL, usato per test).
-    public List<User> addElements() {
-        this.insert(new User(1L, "Test 1"));
-        this.insert(new User(2L, "Test 2"));
-        this.insert(new User(3L, "Test 3"));
-        return this.getAll();
-    }
-    */
 }
