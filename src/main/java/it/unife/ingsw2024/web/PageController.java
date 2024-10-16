@@ -1,11 +1,16 @@
 package it.unife.ingsw2024.web;
 
+import it.unife.ingsw2024.services.TicketService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
+
+    @Autowired
+    TicketService ticketService;
 
     @RequestMapping({"/", "/supporto"})
     public String supporto(Model model) {
@@ -27,7 +32,7 @@ public class PageController {
 
     @RequestMapping("/helpdesk")
     public String helpdesk(Model model) {
-        model.addAttribute("message", "Pagina per servizio Helpdesk");
+        model.addAttribute("Tickets", this.ticketService.getAllTickets());
         return "helpdesk";
     }
 }

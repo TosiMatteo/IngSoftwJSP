@@ -7,9 +7,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: t@0r1
-    url: jdbc:mysql://localhost:3306/cc
-    username: root
+    password: Adidati.01
+    url: jdbc:mysql://localhost:3306/CC24
+    username: matteo
   jpa:
     hibernate:
       ddl-auto:
