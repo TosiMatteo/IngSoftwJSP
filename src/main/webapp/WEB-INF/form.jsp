@@ -93,14 +93,14 @@
         </div>
       </fieldset>
 
-      <div class="checkContainer">
+      <fieldset class="checkContainer">
         <span class="bold">Informativa al trattamento dei dati personali</span>
         <p>I dati che stai fornendo saranno trattati da Code Crusaders in linea con quanto indicato nell' <a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa</a> sul trattamento dei dati personali.</p>
         <div class="containerCheckbox">
           <input type="checkbox" id="formCheck" name="check" required value="check" aria-label="Accetta i termini e le condizioni"/>
           <label for="formCheck">Ho preso visione dell' Informativa e do il consenso.</label>
         </div>
-      </div>
+      </fieldset>
 
       <!-- Pulsante invia -->
       <input type="submit" value="Invia la tua richiesta" aria-label="Invia la tua richiesta">
