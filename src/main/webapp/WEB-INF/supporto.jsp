@@ -110,8 +110,8 @@
                 </div>
 
                 <div class="containerLink">
-                    <span class="textButton">PAUL CODIO</span>
-                    <button onclick="document.location='homeDesk'" class="buttonFeaturePag">tenico</button>
+                    <span class="textButton">TECNICO</span>
+                    <button onclick="document.location='helpdesk'" class="buttonFeaturePag">tenico</button>
                 </div>
             </article>
         </div>

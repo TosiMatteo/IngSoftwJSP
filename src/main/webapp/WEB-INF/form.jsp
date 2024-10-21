@@ -87,20 +87,23 @@
           <label for="formMessage">Aggiungi altri dettagli</label>
           <textarea id="formMessage" name="textarea" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
         </div>
+      </fieldset>
+
+      <fieldset class="container">
         <div class="inputForm100">
           <label for="formFile">Allegato (facoltativo)</label>
           <input type="file" id="formFile" name="file" accept="image/*" aria-label="Carica un file immagine se necessario">
         </div>
       </fieldset>
 
-      <div class="checkContainer">
+      <fieldset class="checkContainer">
         <span class="bold">Informativa al trattamento dei dati personali</span>
         <p>I dati che stai fornendo saranno trattati da Code Crusaders in linea con quanto indicato nell' <a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa</a> sul trattamento dei dati personali.</p>
         <div class="containerCheckbox">
           <input type="checkbox" id="formCheck" name="check" required value="check" aria-label="Accetta i termini e le condizioni"/>
           <label for="formCheck">Ho preso visione dell' Informativa e do il consenso.</label>
         </div>
-      </div>
+      </fieldset>
 
       <!-- Pulsante invia -->
       <input type="submit" value="Invia la tua richiesta" aria-label="Invia la tua richiesta">
