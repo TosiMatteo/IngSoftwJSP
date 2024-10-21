@@ -87,6 +87,9 @@
           <label for="formMessage">Aggiungi altri dettagli</label>
           <textarea id="formMessage" name="textarea" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
         </div>
+      </fieldset>
+
+      <fieldset class="container">
         <div class="inputForm100">
           <label for="formFile">Allegato (facoltativo)</label>
           <input type="file" id="formFile" name="file" accept="image/*" aria-label="Carica un file immagine se necessario">

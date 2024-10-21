@@ -8,72 +8,8 @@
     <meta charset="UTF-8">
     <title>Pagina tecnico-Ticket</title>
     <%@ include file="../include/Head.inc" %>
-    <style>
-        /* Stili di base per i ticket e gli elementi */
-        .ticket-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    <link rel="stylesheet" href="../css/homeDesk.css" type="text/css">
 
-        .ticket {
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            margin: 10px 0;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .ticket.expanded {
-            background-color: #fff;
-        }
-
-        .ticket-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .ticket-header h3 {
-            margin: 0;
-        }
-
-        .status {
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: white;
-        }
-
-        .status.da-visionare {
-            background-color: red;
-        }
-
-        .status.in-corso {
-            background-color: yellow;
-            color: black;
-        }
-
-        .status.chiuso {
-            background-color: green;
-        }
-
-        .ticket-body {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .ticket-body textarea {
-            width: 100%;
-            height: 100px;
-        }
-
-        /* Icona di filtro */
-        .filter-icon {
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-    </style>
     <script>
         // Script per gestire l'espansione dei ticket
         function toggleTicket(ticketId) {
