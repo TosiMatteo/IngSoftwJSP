@@ -61,22 +61,27 @@
             <option value="" disabled selected>Seleziona</option>
             <option value="Funzioni del sito">Funzioni del sito</option>
             <option value="Gestione dell'account">Gestione dell'account</option>
-            <option value="Privacy, sicurezza e report">Privacy, sicurezza e report</option>
-            <option value="Condizioni e normative">Condizioni e normative</option>
+            <option value="Privacy e sicurezza">Privacy e sicurezza</option>
+            <option value="Normative e segnalazioni">Normative e segnalazioni</option>
           </select>
         </div>
+
         <div class="inputForm">
           <label for="formArgument">Argomento</label>
           <select id="formArgument" name="selectArgomento" required>
             <option value="" disabled selected>Seleziona</option>
-            <option value="Il tuo profilo">Il tuo profilo</option>
-            <option value="Aggiunta di amici">Aggiunta di amici</option>
-            <option value="Impostazioni account">Impostazioni account</option>
-            <option value="Accesso e download delle tue informazioni">Accesso e download delle tue informazioni</option>
-            <option value="La tua privacy">La tua privacy</option>
-            <option value="Protezione dell'account">Protezione dell'account</option>
-            <option value="Segnalazione di contenuti offensivi">Segnalazione di contenuti offensivi</option>
-            <option value="Segnalare un problema">Segnalare un problema</option>
+            <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
+            <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
+            <option value="Eliminare un evento" data-type="Funzioni del sito">Eliminare un evento</option>
+            <option value="Accesso e password" data-type="Gestione dell'account">Accesso e password</option>
+            <option value="Impostazioni account" data-type="Gestione dell'account">Impostazioni account</option>
+            <option value="Disattivare o eliminare account" data-type="Gestione dell'account">Disattivare o eliminare account</option>
+            <option value="Accesso e download dei tuoi dati" data-type="Privacy e sicurezza">Accesso e download dei tuoi dati</option>
+            <option value="Protezione dell'account" data-type="Privacy e sicurezza">Protezione dell'account</option>
+            <option value="Richiesta di rimozione legale" data-type="Privacy e sicurezza">Richiesta di rimozione legale</option>
+            <option value="Accesso e download delle nostre normative" data-type="Normative e segnalazioni">Accesso e download delle nostre normative</option>
+            <option value="Segnalare di contenuti offensivi" data-type="Normative e segnalazioni">Segnalare contenuti offensivi</option>
+            <option value="Segnalare un problema" data-type="Normative e segnalazioni">Segnalare un problema</option>
           </select>
         </div>
       </fieldset>
@@ -120,6 +125,7 @@
 <%@ include file="../include/Footer.inc" %>
 
 <script src="../javascript/InsertForm.js"></script>
+<script src="../javascript/SelectForm.js"></script>
 
 </body>
 </html>
