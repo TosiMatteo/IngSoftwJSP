@@ -15,24 +15,31 @@
 
 <%@ include file="../include/Top.inc" %>
 
+<!------------------------------------------ Contenuto principale: MAIN ------------------------------------------------>
 <main>
-    <!-- Features1 Section -->
+    <!-- Sezione Features1 -->
     <section class="features1-padding thq-section-padding">
         <div class="features1-max-width thq-section-max-width">
-            <!-- Title and Search Bar -->
-            <header class="sectionTitle">
+
+            <!-- Titolo e barra di ricerca -->
+            <div class="sectionTitle">
+
                 <h1>Come possiamo aiutarti?</h1>
                 <div class="containerBarra">
                     <img src="../images/ricerca.png" alt="Icona di ricerca" class="imageSearch" />
                     <input type="search" name="search" id="search" placeholder="Cerca negli articoli dell’assistenza..." />
                 </div>
-            </header>
+            </div>
 
-            <!-- Popular Topics -->
-            <article class="features-container-arg">
+            <!-- Container titolo e argomenti principali -->
+            <div class="features-container-arg">
                 <h2 class="h2Feature">Argomenti popolari</h2>
+
+                <!-- Contenitore griglia -->
                 <div class="thq-grid-3">
-                    <button onclick="document.location='https://www.codecrusaders.com/gestione-account/impostazioni-account'" class="buttonFeatureArg">
+                    <!--Pulsante come collegamento, con codice JavaScript -->
+                    <button onclick="document.location='https://www.codecrusaders.com/gestione-account/impostazioni-account'"
+                            class="buttonFeatureArg">
                         <img src="../images/account.png" alt="Impostazioni Account" class="imagefeature" />
                         <h4>Impostazioni Account</h4>
                         <span class="textButton">Modifica le impostazioni, gestisci le notifiche, scopri di più sulle modifiche al nome e altro ancora</span>
@@ -68,7 +75,7 @@
                         <span class="textButton">Scopri come creare, gestire e utilizzare i gruppi</span>
                     </button>
                 </div>
-            </article>
+            </div>
 
             <!-- FAQ Button -->
             <div class="containerButton">
@@ -77,20 +84,22 @@
                 </button>
             </div>
 
-            <hr />
+            <!-- divisore: interruzione tematica -->
+            <hr>
         </div>
     </section>
 
-    <!-- Features2 Section -->
+    <!-- Sezione Features2 -->
     <section class="features2-padding thq-section-padding">
         <div class="features2-max-width thq-section-max-width">
-            <header class="sectionTitle2">
+
+            <div class="sectionTitle2">
                 <h2 class="h2Feature">Non hai risolto il tuo problema?</h2>
                 <h3>Contattaci scegliendo una delle modalità elencate. Riceverai le informazioni e l'assistenza richiesta.</h3>
-            </header>
+            </div>
 
-            <!-- Contact Options -->
-            <article class="thq-grid-3-secondo">
+            <!-- Opzioni contatto-->
+            <div class="thq-grid-3-secondo">
                 <div class="containerLink">
                     <img src="../../images/modulo.png" alt="Modulo di contatto" class="imagelinkpag" />
                     <span class="textButton">Compila il modulo e invialo online</span>
@@ -113,10 +122,9 @@
                     <span class="textButton">TECNICO</span>
                     <button onclick="document.location='helpdesk'" class="buttonFeaturePag">tenico</button>
                 </div>
-            </article>
+            </div>
         </div>
     </section>
-
 </main>
 
 <%@ include file="../include/Footer.inc" %>

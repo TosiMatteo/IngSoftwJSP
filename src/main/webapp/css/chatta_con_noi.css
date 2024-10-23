@@ -298,6 +298,13 @@ input[type=submit]:hover {
     background-color: #08457E;
 }
 
+#successMessage {
+    display:none;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
 /*------------ Per eventuali adattamenti (responsive web design) -------------*/
 
 
