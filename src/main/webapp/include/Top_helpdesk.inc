@@ -6,25 +6,14 @@
 
     <!--sezione di navigazione -->
     <nav class="linkNavbar">
-        <a href="https://www.codecrusaders.com/home">
-            <span class="textNavbar">Home</span>
+        <a href="https://www.codecrusaders.com/helpdesk/notifiche">
+            <span class="textNavbar">Notifiche</span>
         </a>
 
-        <a href="https://www.codecrusaders.com/messaggi">
-            <span class="textNavbar">Messaggi</span>
-        </a>
-
-        <a href="https://www.codecrusaders.com/amici">
-            <span class="textNavbar">Amici</span>
-        </a>
-
-        <a href="https://www.codecrusaders.com/eventi">
-            <span class="textNavbar">Eventi</span>
-        </a>
-
-        <a href="https://www.codecrusaders.com/account">
+        <a href="https://www.codecrusaders.com/helpdesk/account">
             <span class="textNavbar">Account</span>
         </a>
+
     </nav>
 
     <!-------------------------- MENU con logo e icona hamburger (mobile) ----------------------------------------->
@@ -64,25 +53,14 @@
 
             <!------------------------- MENU con link e icona x di chiusura (mobile) --------------------------------->
             <nav class="navbar-links-mobile">
-                <a href="https://www.codecrusaders.com/home">
-                    <span class="textNavbar">Home</span>
-                </a>
-
-                <a href="https://www.codecrusaders.com/messaggi">
-                    <span class="textNavbar">Messaggi</span>
-                </a>
-
-                <a href="https://www.codecrusaders.com/amici">
-                    <span class="textNavbar">Amici</span>
-                </a>
-
-                <a href="https://www.codecrusaders.com/eventi">
-                    <span class="textNavbar">Eventi</span>
+                <a href="https://www.codecrusaders.com/notifiche">
+                    <span class="textNavbar">Notifiche</span>
                 </a>
 
                 <a href="https://www.codecrusaders.com/account">
                     <span class="textNavbar">Account</span>
                 </a>
+
             </nav>
 
         </div>
