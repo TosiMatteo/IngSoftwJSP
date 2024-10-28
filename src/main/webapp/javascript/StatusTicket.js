@@ -7,3 +7,9 @@ function cambiaStatoTicket() {
     status.style.color = "Black";// Cambia il colore a arancione
     status.style.background = "#ffff9e";
 }
+
+// Funzione per selezionare le attività in base allo stato
+function selectByStatus(status) {
+    return tasks.filter(task => task.status === status);
+}
+

@@ -15,6 +15,7 @@
 
 <%@ include file="../include/Top_helpdesk.inc" %>
 
+<!------------------------------------------ Contenuto principale: MAIN ------------------------------------------------>
 <main>
     <div class="thq-section-padding">
         <div class="thq-flex-column thq-section-max-width">
@@ -40,53 +41,50 @@
                     </select>
                 </div>
 
-                    <!-- Bottone utilizzato per aprire e chiudere il relativo contenuto -->
-                    <button class="ticketHeader">
-                        <div class="sectionTitle">
-                            <h4> Data:</h4>
-                            <h3> TICKET #</h3>
-                        </div>
-
-                        <div id="statusDefault" class="statusDefault">Da visionare</div>
-                    </button>
-
-                    <div class="ticketBody">
-
-                        <div class="containerDati">
-                            <div class="colonna">
-                                <strong class="strongTitle">Dati personali</strong>
-                                <div class="elencoDati">
-                                    <span> Nome:</span>
-                                    <span> Cognome: </span>
-                                    <span> Email: </span>
-                                    <span> Cellulare: </span>
-                                </div>
-                            </div>
-                            <div class="colonna">
-                                <strong class="strongTitle">Richiesta di assistenza</strong>
-                                <div class="elencoDati">
-                                    <span>Tematica: </span>
-                                    <span>Argomento:</span>
-                                    <span>Dettagli: </span>
-                                    <span>Allegato: </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <textarea id="textAnswer" name="textarea" required placeholder="Scrivi la tua risposta qui..."></textarea>
-
-                        <!-- elenco History salvato per ciasun ticket -->
-                        <input type="submit" value="Invia" aria-label="Risposta" onclick="copiaTesto(); cambiaStatoTicket()">
-
-                        <div class="containerHistory">
-                            <strong class="strongTitle">History</strong>
-                            <img src="../images/history.png" alt="History" class="image" />
-                        </div>
-
-                        <div id="log"></div>
-
-
+                <!-- Bottone utilizzato per aprire e chiudere il relativo contenuto -->
+                <button class="ticketHeader">
+                    <div class="sectionTitle">
+                        <h4> Data:</h4>
+                        <h3> TICKET #</h3>
                     </div>
+
+                    <div id="statusDefault" class="statusDefault">Da visionare</div>
+                </button>
+
+                <div class="ticketBody">
+                    <div class="containerDati">
+                        <div class="colonna">
+                            <strong class="strongTitle">Dati personali</strong>
+                            <div class="elencoDati">
+                                <span> Nome:</span>
+                                <span> Cognome: </span>
+                                <span> Email: </span>
+                                <span> Cellulare: </span>
+                            </div>
+                        </div>
+                        <div class="colonna">
+                            <strong class="strongTitle">Richiesta di assistenza</strong>
+                            <div class="elencoDati">
+                                <span>Tematica: </span>
+                                <span>Argomento:</span>
+                                <span>Dettagli: </span>
+                                <span>Allegato: </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <textarea id="textAnswer" name="textarea" required placeholder="Scrivi la tua risposta qui..."></textarea>
+
+                    <!-- elenco History salvato per ciasun ticket -->
+                    <input type="submit" value="Invia" aria-label="Risposta" onclick="copiaTesto(); cambiaStatoTicket()">
+
+                    <div class="containerHistory">
+                        <strong class="strongTitle">History</strong>
+                        <img src="../images/history.png" alt="History" class="image" />
+                    </div>
+
+                    <div id="log"></div>
+                </div>
 
             </div>
         </div>
@@ -95,8 +93,9 @@
 <%@ include file="../include/Footer_helpdesk.inc" %>
 
 <script src="../javascript/OpeningTicket.js"></script>
-<script src="../javascript/HistoryHelpdesk.js"></script>
 <script src="../javascript/StatusTicket.js"></script>
+<script src="../javascript/HistoryHelpdesk.js"></script>
+
 
 <!--
 <script>

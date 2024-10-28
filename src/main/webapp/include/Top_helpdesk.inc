@@ -1,21 +1,23 @@
+<!------------------------------------------- Blocco introduttivo (testata) ------------------------------------------->
 <header>
+
+    <!-------------------------------------------- Navigation Bar --------------------------------------------------->
     <div class="paddingNavbar">
         <img alt="Logo" src="/images/logoHeader.png" class="logoNavbar" />
 
-        <!---------------------------------------- MENU desktop ---------------------------------------------------------->
-
-        <!--sezione di navigazione -->
+        <!-- Sezione di navigazione - MENU (desktop) -->
         <nav class="linkNavbar">
-           <a href="https://www.codecrusaders.com/notifiche">
+           <a href="https://www.codecrusaders.com/helpdesk/notifiche">
                <span class="textNavbar">Notifiche</span>
            </a>
 
-           <a href="https://www.codecrusaders.com/account">
+           <a href="https://www.codecrusaders.com/helpdesk/account">
                <span class="textNavbar">Account</span>
            </a>
-       </nav>
+        </nav>
 
-        <!-------------------------- MENU con logo + icona hamburger Menu (mobile) ----------------------------------------->
+        <!-- Mobile Navigation Menu (vertical) -->
+        <!-- Icona hamburger x apertura MENU -->
         <div class="navbar-burger-menu" onclick="openingMenu()">
 
             <!-- SVG scaricato da Google fonts -->
@@ -28,20 +30,19 @@
                 <path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
             </svg>
         </div>
+
     </div>
 
-    <!-------------------------------------- MENU con link (mobile) --------------------------------->
-
+    <!-- Sezione di navigazione - MENU (mobile) -->
     <nav class="navbar-links-mobile" id="myLinks">
-        <a href="https://www.codecrusaders.com/notifiche">
+        <a href="https://www.codecrusaders.com/helpdesk/notifiche">
             <span class="textNavbar">Notifiche</span>
         </a>
 
-        <a href="https://www.codecrusaders.com/account">
+        <a href="https://www.codecrusaders.com/helpdesk/account">
             <span class="textNavbar">Account</span>
         </a>
     </nav>
-   </div>
 
 </header>
 
