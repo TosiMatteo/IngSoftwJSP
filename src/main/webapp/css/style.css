@@ -131,76 +131,80 @@ a {
     color: #4F4F4F;
 }
 
+/*-------------------------------------------------- navbar --------------------------------------------------------*/
+
+/*spazio attorno al contenuto di un elemento, all'interno di eventuali bordi definiti*/
+.paddingNavbar {
+    width: 100%;
+    background-color: #007FFF;
+    display: flex;
+    align-items: center;
+    padding: 24px 80px;
+    justify-content: space-between;
+    position: relative;
+    flex-direction: row;
+}
+
+/*dimensione logo*/
+.logoNavbar {
+    width: 96px;
+    height: 96px;
+    margin-left:-20px;
+}
+
+/*posizione link menu*/
+.linkNavbar {
+    gap: 32px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/*testo link Navbar*/
+.textNavbar {
+    color: #EFEFEF;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.textNavbar:hover {
+    color: #4F4F4F;
+}
+
 /*-----------------navbar mobile---------------*/
 
-/*container logo+icona menu*/
-.navbar-burger-menu {
+/*container logo + icona menu*/
+.navbar-burger-menu, .navbar-links-mobile, #myLinks{
     /*comportamento display: non visualizzato (su desktop)*/
     display: none;
 }
-
-/*container link*/
-.navbar-mobile-menu {
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1000px;
-    padding: 32px;
-    z-index: 100;
-    position: absolute;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #007FFF;
-}
-
-/*container MENU completo*/
-.navbar-nav {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-/*container logo+icona close*/
-.navbar-top {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 48px;
-}
-
-/*container icona close*/
-.navbar-close-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/*navbar link menu mobile*/
-.navbar-links-mobile {
-    gap: 16px;
-    /* La flexproprietà è una proprietà abbreviata
-    per le proprietà flex-grow, flex-shrink, e flex-basis.*/
-    flex: 0 0 auto;
-    display: flex;
-    align-self: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
 
 @media(max-width: 767px) {
     .linkNavbar {
         display: none;
     }
+
     .navbar-burger-menu {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .navbar-mobile-menu {
-        z-index: 100;
+
+    /*navbar link menu mobile*/
+    .navbar-links-mobile {
+        width: 100%;
+        background-color: #007FFF;
+        /* La flex proprietà è una proprietà abbreviata
+        per le proprietà flex-grow, flex-shrink, e flex-basis.*/
+        display: flex;
+        flex: 0 0 auto;
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px;
+
     }
     .paddingNavbar {
         padding-left: 32px;
@@ -212,12 +216,17 @@ a {
     .logoNavbar {
         width: 48px;
         height: 48px;
-    }
-    .navbar-mobile-menu {
-        padding: 16px;
+        margin-left: -5px;
     }
     .paddingNavbar {
         padding: 16px;
+    }
+    .navbar-links-mobile{
+        padding: 16px;
+    }
+    svg{
+        height: 32px;
+        width: 32px;
     }
 }
 
@@ -346,4 +355,3 @@ strong {
         padding: 16px;
     }
 }
-

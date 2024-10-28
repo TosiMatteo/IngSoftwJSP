@@ -307,7 +307,6 @@ input[type=submit]:hover {
 
 /*------------ Per eventuali adattamenti (responsive web design) -------------*/
 
-
 @media(max-width: 1200px) {
     .containerChat {
         align-self: center;

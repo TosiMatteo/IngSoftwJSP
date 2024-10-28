@@ -40,24 +40,14 @@
                     </select>
                 </div>
 
-                <c:forEach var="ticket" items="${tickets}">
-
                     <!-- Bottone utilizzato per aprire e chiudere il relativo contenuto -->
                     <button class="ticketHeader">
-
                         <div class="sectionTitle">
-                            <h4> Data: ${ticket.data} </h4>
-                            <h3> TICKET #${ticket.id} </h3>
+                            <h4> Data:</h4>
+                            <h3> TICKET #</h3>
                         </div>
 
-                        <div class="status ${ticket.stato}">
-                            <c:choose>
-                                <c:when test="${ticket.stato == 'daVisionare'}">Da Visionare</c:when>
-                                <c:when test="${ticket.stato == 'inCorso'}">In Corso</c:when>
-                                <c:when test="${ticket.stato == 'chiuso'}">Chiuso</c:when>
-                            </c:choose>
-                        </div>
-
+                        <div id="statusDefault" class="statusDefault">Da visionare</div>
                     </button>
 
                     <div class="ticketBody">
@@ -66,36 +56,37 @@
                             <div class="colonna">
                                 <strong class="strongTitle">Dati personali</strong>
                                 <div class="elencoDati">
-                                    <span> Nome: ${ticket.nome}</span>
-                                    <span> Cognome: ${ticket.cognome}</span>
-                                    <span> Email: ${ticket.email}</span>
-                                    <span> Cellulare: ${ticket.cellulare}
+                                    <span> Nome:</span>
+                                    <span> Cognome: </span>
+                                    <span> Email: </span>
+                                    <span> Cellulare: </span>
                                 </div>
                             </div>
-
                             <div class="colonna">
                                 <strong class="strongTitle">Richiesta di assistenza</strong>
                                 <div class="elencoDati">
-                                    <span>Tematica: ${ticket.tematica}</span>
-                                    <span>Argomento: ${ticket.argomento}</span>
-                                    <span>Dettagli: ${ticket.dettagli}</span>
-                                    <span>Allegato: ${ticket.allegato}</span>
+                                    <span>Tematica: </span>
+                                    <span>Argomento:</span>
+                                    <span>Dettagli: </span>
+                                    <span>Allegato: </span>
                                 </div>
                             </div>
                         </div>
 
-                        <textarea id="formTicket" name="textarea" required placeholder="Scrivi la tua risposta qui..."></textarea>
+                        <textarea id="textAnswer" name="textarea" required placeholder="Scrivi la tua risposta qui..."></textarea>
 
-                        <input type="submit" value="Invia" aria-label="Risposta">
+                        <!-- elenco History salvato per ciasun ticket -->
+                        <input type="submit" value="Invia" aria-label="Risposta" onclick="copiaTesto(); cambiaStatoTicket()">
 
                         <div class="containerHistory">
                             <strong class="strongTitle">History</strong>
                             <img src="../images/history.png" alt="History" class="image" />
                         </div>
 
-                    </div>
+                        <div id="log"></div>
 
-                </c:forEach>
+
+                    </div>
 
             </div>
         </div>
@@ -104,6 +95,8 @@
 <%@ include file="../include/Footer_helpdesk.inc" %>
 
 <script src="../javascript/OpeningTicket.js"></script>
+<script src="../javascript/HistoryHelpdesk.js"></script>
+<script src="../javascript/StatusTicket.js"></script>
 
 <!--
 <script>

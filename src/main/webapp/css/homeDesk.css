@@ -97,28 +97,35 @@ h3{
     line-height: 1.5;
 }
 
+.statusDefault {
+    padding: 8px 16px;
+    width: 250px;
+    border-radius: 4px;
+    color: red;
+    font-weight: 600;
+    text-align: center;
+    background: #ffbfaa;
+}
 
 /*
-
-.status {
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: white;
+.statusInProgress {
+    padding: 8px 16px;
+    width: 250px;
+    border-radius: 4px;
+    color: yellow;
+    font-weight: 600;
+    background-color: #ffff9e;
 }
-
-.status.da-visionare {
-    background-color: red;
-}
-
-.status.in-corso {
-    background-color: yellow;
-    color: black;
-}
-
-.status.chiuso {
-    background-color: green;
+.statusClose {
+    padding: 8px 16px;
+    width: 250px;
+    border-radius: 8px;
+    color: green;
+    font-weight: 600;
+    background-color: #95c799;
 }
 */
+
 
 .ticketBody {
     background-color: white;
@@ -197,4 +204,9 @@ input[type=submit]:hover {
     align-items: center;
     flex-direction: row;
     margin-top: 64px;
+}
+
+/* testo history */
+#log {
+    margin-top: 16px;
 }
