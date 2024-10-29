@@ -1,5 +1,6 @@
-/*--- ------------------------------------ Contenuto iniziale predefinito ------------------------------*/
+/*--- ------------------------------------ Contenuto iniziale/predefinito -------------------------------------------*/
 
+/* Sezione principale del documento html */
 body{
     /*selezione del carattere*/
     font-family: Inter, sans-serif;
@@ -9,27 +10,24 @@ body{
     font-style: normal;
     /*peso di un font*/
     font-weight: normal;
-
-    /*allineamento del testo */
+    /*allineamento del testo*/
     text-align: left;
     /*altezza della riga*/
     line-height: 1.5;
-
     /*sfondo*/
     background-color:white;
-
     /* 1. margine - creo spazio attorno agli elementi, al di fuori di qualsiasi bordo definito.
        2. box-sizing - include la spaziatura e il bordo nella larghezza e nell'altezza totali di un elemento*/
     margin: 0;}* {box-sizing:border-box;
                    border-width: 0;
-                   border-style: solid;
-               }
+                   border-style: solid;}
+
 p,div,h1,h2,h3,h4,h5,h6  {
     margin: 0;
     padding: 0;
 }
 
-/*formato testo all'interno di vari campi*/
+/*Stile testo e margine all'interno dei campi*/
 button,input,optgroup,select,textarea {
     font-family: Inter, sans-serif;
     font-size: 16px;
@@ -37,15 +35,14 @@ button,input,optgroup,select,textarea {
     line-height: 1.5;
     margin: 0;
 }
-
+/* Stile hyperlink */
 a {
     text-decoration: none;
 }
 
 /*------------------------------------------------ Spesso Riutilizzate ------------------------------------------------*/
 
-/* padding utilizzato per creare spazio attorno al contenuto di un elemento,
-   all'interno di eventuali bordi definiti.  */
+/* Padding utilizzato per creare spazio attorno al contenuto di un elemento, all'interno di eventuali bordi definiti*/
 .thq-section-padding {
     width: 100%;
     padding: 80px;
@@ -55,7 +52,7 @@ a {
     flex-direction: column;
 }
 
-/* Proprietà predefinite CSS Width, utilizzata per definire la larghezza massima di un elemento. */
+/* Proprietà predefinite CSS Width, utilizzata per definire la larghezza massima di un elemento */
 .thq-section-max-width {
     width: 100%;
     max-width: 1400px;
@@ -70,27 +67,25 @@ a {
     align-items: center;
     flex-direction: column;
 }
-
-/*-- Per eventuali adattamenti interfacce (responsive web design) --*/
+/*-------------------------------------- Per eventuali adattamenti interfacce (responsive web design) ----------------*/
 @media(max-width: 767px) {
     .thq-section-padding {
-        padding: 32px; /*48 -> 32*/
+        padding: 32px;
     }
     .thq-flex-column {
-        gap: 16px; /*24 -> 16*/
+        gap: 16px;
     }
 }
-
 @media(max-width: 479px) {
     .thq-section-padding {
-        padding: 16px; /*24 -> 16  proporzione 1.5*/
+        padding: 16px;
     }
     .thq-flex-column {
-        gap: 11px; /*16 -> 11*/
+        gap: 11px;
     }
 }
 
-/*-------------------------------------------------- navbar --------------------------------------------------------*/
+/*-------------------------------------------------- header --------------------------------------------------------*/
 
 /*spazio attorno al contenuto di un elemento, all'interno di eventuali bordi definiti*/
 .paddingNavbar {
@@ -104,14 +99,16 @@ a {
     flex-direction: row;
 }
 
-/*dimensione logo*/
+/* Stile logo*/
 .logoNavbar {
+    /*dimensione*/
     width: 96px;
     height: 96px;
+    /*crea spazio nel lato sx dell'elemento*/
     margin-left:-20px;
 }
 
-/*posizione link menu*/
+/* Stile Menu di navigazione: posizione*/
 .linkNavbar {
     gap: 32px;
     flex: 1;
@@ -121,82 +118,41 @@ a {
     justify-content: flex-end;
 }
 
-/*testo link Navbar*/
+/* Stile link Menu di navigazione */
 .textNavbar {
     color: #EFEFEF;
     font-weight: 600;
     transition: color 0.3s ease;
 }
+/* Cambia colore al link al passaggio del mouse */
 .textNavbar:hover {
     color: #4F4F4F;
 }
 
-/*-------------------------------------------------- navbar --------------------------------------------------------*/
-
-/*spazio attorno al contenuto di un elemento, all'interno di eventuali bordi definiti*/
-.paddingNavbar {
-    width: 100%;
-    background-color: #007FFF;
-    display: flex;
-    align-items: center;
-    padding: 24px 80px;
-    justify-content: space-between;
-    position: relative;
-    flex-direction: row;
-}
-
-/*dimensione logo*/
-.logoNavbar {
-    width: 96px;
-    height: 96px;
-    margin-left:-20px;
-}
-
-/*posizione link menu*/
-.linkNavbar {
-    gap: 32px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-/*testo link Navbar*/
-.textNavbar {
-    color: #EFEFEF;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-.textNavbar:hover {
-    color: #4F4F4F;
-}
-
-/*-----------------navbar mobile---------------*/
+/*----------------- Mobile Navigation Bar (vertical) ---------------*/
 
 /*container logo + icona menu*/
 .navbar-burger-menu, .navbar-links-mobile, #myLinks{
-    /*comportamento display: non visualizzato (su desktop)*/
+    /* comportamento display: non visualizzato (su desktop) */
     display: none;
-}
 
+}
+/*-------------------------------------- Per eventuali adattamenti interfacce (responsive web design) ----------------*/
 @media(max-width: 767px) {
     .linkNavbar {
         display: none;
     }
-
+    /* Stile Hamburger Menu */
     .navbar-burger-menu {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-    /*navbar link menu mobile*/
+    /* Stile Navigation menu (mobile)*/
     .navbar-links-mobile {
         width: 100%;
         background-color: #007FFF;
-        /* La flex proprietà è una proprietà abbreviata
-        per le proprietà flex-grow, flex-shrink, e flex-basis.*/
+        /* La flex proprietà è una proprietà abbreviata per le proprietà flex-grow, flex-shrink, e flex-basis */
         display: flex;
         flex: 0 0 auto;
         position: relative;
@@ -211,7 +167,6 @@ a {
         padding-right: 32px;
     }
 }
-
 @media(max-width: 479px) {
     .logoNavbar {
         width: 48px;
@@ -224,6 +179,7 @@ a {
     .navbar-links-mobile{
         padding: 16px;
     }
+    /* Stile icona Hamburger */
     svg{
         height: 32px;
         width: 32px;
@@ -233,22 +189,17 @@ a {
 /*--------------------------------------------------- footer ---------------------------------------------------------*/
 
 footer {
+    display: block;
     background-color: #007FFF;
     width: 100%;
     padding-top: 48px;
     padding-bottom: 16px;
     padding-left: 80px;
     padding-right: 80px;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    flex-direction: row;
 }
 
-/*1 container contenuto*/
-.footer-content {
+/*Container contenuto*/
+.footerContent {
     gap: 128px;
     display: flex;
     align-items: flex-start;
@@ -256,28 +207,28 @@ footer {
     flex-direction: row;
 }
 
-/*2 container logo-motto */
-.footer-container {
+/*Container logo-citazione */
+.footerCitation{
     gap: 8px;
     display: flex;
     align-items: stretch;
     flex-direction: column;
 }
-/*formato immagine logo*/
+/*Stile logo*/
 .logoFooter {
     width: 96px;
     height: 96px;
     margin-left:-20px;
 }
-/*formato testo motto*/
-.textMotto {
+/*Stile testo citazione*/
+.textCitation {
     color: #EFEFEF;
     font-size: 14px;
     font-style: oblique;
 }
 
-/*3 container menu con tutte le colonne */
-.footer-menu {
+/*Container menu con tutte le colonne */
+.footerMenu {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -285,8 +236,8 @@ footer {
     justify-content: space-between;
 }
 
-/*4 container colonna con titolo e rispettivi link */
-.footer-column {
+/*Container colonna con titolo e rispettivi link */
+.containerColumn {
     gap: 16px;
     display: flex;
     flex-grow: 1;
@@ -295,25 +246,24 @@ footer {
     justify-content: flex-start;
     margin-right: 24px;
 }
-
-/*formato testo titolo colonna */
+/*Stile titolo colonna */
 strong {
     color: #EFEFEF;
     font-size: 18px;
 }
-/*5 container link per ogni colonna*/
-.footer-links {
+/*Container link all'interno del Menu*/
+.verticalMenu {
     gap: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-/*formato testo link*/
+/*Stile link*/
 .textFooter {
     color: #EFEFEF;
 }
 
-/*6 container credits */
+/*Container credits */
 .footerCredits {
     gap: 16px;
     display: flex;
@@ -326,18 +276,18 @@ strong {
     width: 100%;
     height: 1px;
 }
-/*formato testo credits*/
+/*Stile testo credits*/
 .footerContentCredits {
     color: #EFEFEF;
     font-size: 10px;
 }
-
+/*-------------------------------------- Per eventuali adattamenti interfacce (responsive web design) ----------------*/
 @media(max-width: 767px) {
-    .footer-content {
+    .footerContent {
         gap: 32px;
         flex-direction: column;
     }
-    .footer-menu {
+    .footerMenu {
         width: 100%;
     }
     footer{
@@ -345,9 +295,8 @@ strong {
         padding-right: 32px;
     }
 }
-
 @media(max-width: 479px) {
-    .footer-menu {
+    .footerMenu {
         flex-direction: column;
         gap:32px;
     }
