@@ -23,13 +23,13 @@ public class TicketController {
 
     // Gestisce le richieste GET su "/api/tickets" per ottenere tutti i ticket.
     @GetMapping
-    public List<Ticket> getTickets(){
+    public List<Ticket> getTickets() {
         return ticketService.getAllTickets(); // Chiama il servizio per ottenere la lista di tutti i ticket.
     }
 
     // Gestisce le richieste GET su "/api/tickets?id={id}" per ottenere un ticket specifico.
     @GetMapping("/{id}")
-    public Ticket getTicket(@RequestParam int id){
+    public Ticket getTicket(@RequestParam int id) {
         return ticketService.getTicketById(id); // Chiama il servizio per ottenere un ticket specifico in base all'ID.
     }
 
@@ -68,4 +68,18 @@ public class TicketController {
     public void deleteTicket(@PathVariable int id) {
         ticketService.deleteTicket(id); // Chiama il servizio per eliminare il ticket con l'ID specificato.
     }
+
+
+    @PostMapping("/update")
+    public String updateTicketStatus(@RequestParam int id, @RequestParam int status) {
+        Ticket ticket = ticketService.getTicketById(id);
+
+        // Modifica lo stato del ticket
+        ticket.cambiaStatusTicket(status);
+        ticketService.updateTicket(id, ticket);
+
+        // Reindirizza alla pagina 'helpdesk' dopo l'aggiornamento
+        return "redirect:/helpdesk";
+    }
+
 }

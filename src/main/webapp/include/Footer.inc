@@ -5,7 +5,7 @@
             <div class="footer-container">
                 <img alt="Logo" src="/images/logoHeader.png" class="logoFooter"/>
                 <span class="textMotto">
-                    "La nuova era appartiene ai Code Crusaders: Creatori di possibilità infinite"
+                    "La nuova era appartiene ai Code Crusaders: Creatori di possibilit&agrave; infinite"
                 </span>
             </div>
 
@@ -20,15 +20,15 @@
                             <span class="textFooter">Home</span>
                         </a>
 
-                        <a href="https://www.codecrusaders.com/messages" >
+                        <a href="https://www.codecrusaders.com/messaggi" >
                             <span class="textFooter">Messaggi</span>
                         </a>
 
-                        <a href="https://www.codecrusaders.com/friends">
+                        <a href="https://www.codecrusaders.com/amici">
                             <span class="textFooter">Amici</span>
                         </a>
 
-                        <a href="https://www.codecrusaders.com/events" >
+                        <a href="https://www.codecrusaders.com/eventi" >
                             <span class="textFooter">Eventi</span>
                         </a>
 
@@ -74,7 +74,7 @@
             <div class="divider"></div>
             <div>
                 <span class="footerContentCredits">
-                    Copyright ⓒ 2024 Code Crusaders Italia. Tutti i diritti riservati.
+                    Copyright &copy 2024 Code Crusaders Italia. Tutti i diritti riservati.
                 </span>
             </div>
         </div>

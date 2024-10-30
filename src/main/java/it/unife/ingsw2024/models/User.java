@@ -1,5 +1,6 @@
 package it.unife.ingsw2024.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,6 @@ public class User {
 
     // Relazione One-to-Many con Ticket
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // Un utente può avere molti ticket
+    @JsonIgnore
     private List<Ticket> tickets;
 }

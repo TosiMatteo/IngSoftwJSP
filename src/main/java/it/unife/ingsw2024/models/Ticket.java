@@ -1,5 +1,6 @@
 package it.unife.ingsw2024.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,10 +28,15 @@ public class Ticket {
     // Relazione Many-to-One con User
     @ManyToOne(fetch = FetchType.LAZY) // Molti ticket possono appartenere a un singolo utente
     @JoinColumn(name = "user_id", referencedColumnName = "id") // user_id è la foreign key nella tabella ticket
+    @JsonIgnore
     private User user;
 
     // Relazione One-to-One con Image
     @OneToOne(fetch = FetchType.LAZY) // Un ticket ha una sola immagine
     @JoinColumn(name = "image_id", referencedColumnName = "id") // image_id è la foreign key nella tabella ticket
     private Image image;
+
+    public void cambiaStatusTicket(int stato) {
+        this.progress = stato;
+    }
 }

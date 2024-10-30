@@ -57,10 +57,4 @@ public class UserController {
         userService.deleteUser(id); // Chiama il servizio per eliminare l'utente con l'ID specificato.
     }
 
-    // Questo metodo è stato commentato. Si potrebbe trattare di un'implementazione sperimentale per aggiungere utenti con test.
-    /*
-    @RequestMapping({"/testWithElements"})
-    public List<User> addElements() {
-        return this.userService.addElements(); // Esempio di metodo per aggiungere elementi di test (se esiste nel servizio).
-    } */
 }
