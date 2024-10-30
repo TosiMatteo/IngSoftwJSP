@@ -1,5 +1,5 @@
-/*1 - container con titoli*/
-.sectionTitle {
+/*Container con titoli*/
+.containerTitle {
     /* spazio tra le righe e tra le colonne */
     gap: 8px;
     /*larghezza*/
@@ -38,25 +38,23 @@ form {
     width: 100%;
     /*L'overflow viene ritagliato e il resto del contenuto sarà invisibile*/
     overflow: hidden;
-    /*Posiziona l'elemento relativamente alla posizione che assumerebbe normalmente
-    il normal flow.*/
+    /*Posiziona l'elemento relativamente alla posizione che assumerebbe normalmente il normal flow.*/
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-/*1 - container per riga*/
+/*Container per riga*/
 .container {
     gap: 16px;
     width: 100%;
     display: flex;
-    flex: 0 0 auto;
     align-items: flex-start;
     flex-direction: row;
 }
 
-/*2 - container label+input 50%*/
+/*Container label+input 50%*/
 .inputForm {
     gap: 8px;
     width: 50%;
@@ -72,6 +70,7 @@ input[type=email],
 input[type=tel]{
     /*cursore del mouse*/
     cursor: auto;
+    outline: none;
     padding: 8px;
     border: 2px solid #E1E1E1;
     border-radius: 8px;
@@ -91,12 +90,12 @@ select {
     border: 2px solid #E1E1E1;
     border-radius: 8px;
 }
-/*assegna uno stile a un campo di input quando è attivo*/
+/*Assegna uno stile a un campo di input quando è attivo*/
 select:focus {
     border-color: #2F2F2F;
 }
 
-/*3 - container label+input (larghezza 100%) per textarea e input type file*/
+/*Container label+input (larghezza 100%) per textarea e input type file*/
 .inputForm100 {
     gap: 8px;
     width: 100%;
@@ -133,7 +132,7 @@ input[type=file]:focus {
     border-color: #2F2F2F;
 }
 
-/*container text+check*/
+/*Container text+check*/
 .checkContainer {
     gap: 16px;
     width: 100%;
@@ -181,7 +180,7 @@ input[type=checkbox] {
     border-radius: 8px;
 }
 
-/*input type buttons FORM*/
+/*input type button FORM*/
 input[type=submit] {
     color: white;
     background-color: #007FFF;
@@ -195,18 +194,19 @@ input[type=submit] {
     font-weight: bold;
     transition: 0.3s;
 }
-/*Seleziona e assegna uno stile a un
-collegamento quando ci passi sopra con il mouse*/
+/*Seleziona e assegna uno stile a un collegamento quando ci passi sopra con il mouse*/
 input[type=submit]:hover {
     background-color: #08457E;
 }
 
-#successMessage
-{
-    display:none; color: green; font-weight: bold; margin-top: 20px;
+#successMessage {
+    display:none;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
-/*------------ Per eventuali adattamenti (responsive web design) -------------*/
+/*------------------------------ Per eventuali adattamenti (responsive web design) ------------------------------*/
 @media(max-width: 1200px) {
 }
 
