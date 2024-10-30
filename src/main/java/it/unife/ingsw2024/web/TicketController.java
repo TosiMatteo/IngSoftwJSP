@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -70,16 +71,16 @@ public class TicketController {
     }
 
 
-    @PostMapping("/update")
-    public String updateTicketStatus(@RequestParam int id, @RequestParam int status) {
+
+    @PostMapping("/updateStatus/{id}")
+    public RedirectView updateTicketStatus(@PathVariable int id, @RequestParam int status) {
         Ticket ticket = ticketService.getTicketById(id);
 
-        // Modifica lo stato del ticket
-        ticket.cambiaStatusTicket(status);
-        ticketService.updateTicket(id, ticket);
+        if (ticket != null) {
+            ticket.cambiaStatusTicket(status);
+            ticketService.updateTicket(id, ticket);
+        }
 
-        // Reindirizza alla pagina 'helpdesk' dopo l'aggiornamento
-        return "redirect:/helpdesk";
+        return new RedirectView("/helpdesk");
     }
-
 }

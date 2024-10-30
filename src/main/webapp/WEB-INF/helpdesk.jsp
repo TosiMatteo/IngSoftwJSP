@@ -75,17 +75,18 @@
                     return "grey";
             }
         }
-        document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.ticket').forEach(function(ticket) {
-        var status = parseInt(ticket.getAttribute('data-status'));
-        var statusText = ticketsStatus(status);
-        var statusColor = getStatusColor(status);
 
-        var colourStatusDiv = ticket.querySelector('.colourStatus');
-        colourStatusDiv.textContent = statusText;
-        colourStatusDiv.style.backgroundColor = statusColor;
-    });
-});
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.ticket').forEach(function (ticket) {
+                var status = parseInt(ticket.getAttribute('data-status'));
+                var statusText = ticketsStatus(status);
+                var statusColor = getStatusColor(status);
+
+                var colourStatusDiv = ticket.querySelector('.colourStatus');
+                colourStatusDiv.textContent = statusText;
+                colourStatusDiv.style.backgroundColor = statusColor;
+            });
+        });
 
     </script>
 </head>
@@ -172,8 +173,7 @@
                             </div>
 
                             <div class="fine">
-                                <form action="/api/tickets/update" method="post">
-                                    <input type="hidden" name="id" value="<%= ticket.getNumber() %>"/>
+                                <form action="/api/tickets/updateStatus/<%= ticket.getNumber() %>" method="post" >
                                     <input type="hidden" name="status" value="2"/>
                                     <button type="submit">Chiusura ticket</button>
                                 </form>
