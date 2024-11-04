@@ -39,4 +39,5 @@ public class TicketService {
     public void deleteTicket(int id) {
         ticketRepository.deleteById(id); // Elimina il ticket dal database tramite il suo ID.
     }
+
 }
