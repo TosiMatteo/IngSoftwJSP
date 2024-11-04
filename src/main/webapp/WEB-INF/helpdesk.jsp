@@ -129,10 +129,8 @@
                     <div class="ticket" data-status="<%=ticket.getProgress()%>">
                         <button class="ticketHeader">
                             <div class="sectionTitle">
-                                <h4> Data:<%=ticket.getDate()%>
-                                </h4>
-                                <h3> Ticket#<%=ticket.getNumber()%>
-                                </h3>
+                                <h4> Data:<%=ticket.getDate()%> </h4>
+                                <h3> Ticket#<%=ticket.getNumber()%> </h3>
                             </div>
                             <div class="colourStatus"></div>
                         </button>
