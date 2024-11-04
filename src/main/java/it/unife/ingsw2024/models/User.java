@@ -1,5 +1,7 @@
 package it.unife.ingsw2024.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +27,7 @@ public class User {
 
     // Relazione One-to-Many con Ticket
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // Un utente può avere molti ticket
+    @JsonBackReference // Indica che questa è la parte inversa della relazione
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  // Ignora le proprietà Hibernate specifiche
     private List<Ticket> tickets;
 }

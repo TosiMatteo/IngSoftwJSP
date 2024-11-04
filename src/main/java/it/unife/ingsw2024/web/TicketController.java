@@ -22,13 +22,13 @@ public class TicketController {
     private UserService userService; // Iniettato per recuperare l'utente tramite ID
 
     // Gestisce le richieste GET su "/api/tickets" per ottenere tutti i ticket.
-    @GetMapping
+    @GetMapping()
     public List<Ticket> getTickets(){
         return ticketService.getAllTickets(); // Chiama il servizio per ottenere la lista di tutti i ticket.
     }
 
-    // Gestisce richieste GET su "/api/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
-    @GetMapping
+    // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
+    @GetMapping("/abusi")
     public List<Ticket> getAbusi() {
         return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
     }
