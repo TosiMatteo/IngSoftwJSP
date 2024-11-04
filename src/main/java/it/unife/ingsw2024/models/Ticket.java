@@ -23,6 +23,7 @@ public class Ticket {
     private String detail;
     private int progress;
     private Date date;
+    private String response;
 
     // Relazione Many-to-One con User
     @ManyToOne(fetch = FetchType.LAZY) // Molti ticket possono appartenere a un singolo utente
