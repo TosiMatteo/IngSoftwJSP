@@ -19,6 +19,11 @@ public class TicketService {
         return ticketRepository.findAll(); // Chiama il repository per ottenere tutti i ticket dal database.
     }
 
+    //restituisce tutti i ticket che hanno come tematica l'abuso
+    public List<Ticket> AbusiTicket() {
+        return ticketRepository.findByArgument("Segnalare contenuti offensivi");
+    }
+
     // Restituisce un ticket specifico in base all'ID.
     public Ticket getTicketById(int id) {
         Optional<Ticket> ticket = ticketRepository.findById(id); // Trova il ticket tramite il suo ID.
