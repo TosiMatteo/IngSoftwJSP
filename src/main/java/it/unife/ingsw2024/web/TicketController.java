@@ -76,9 +76,6 @@ public class TicketController {
         return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
     }
 
-
-
-
     @PostMapping("/updateStatus/{id}")
     public RedirectView updateTicketStatus(@PathVariable int id, @RequestParam int status) {
         Ticket ticket = ticketService.getTicketById(id);
