@@ -28,12 +28,6 @@ public class TicketController {
         return ticketService.getAllTickets(); // Chiama il servizio per ottenere la lista di tutti i ticket.
     }
 
-    // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
-    @GetMapping("/abusi")
-    public List<Ticket> getAbusi() {
-        return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
-    }
-
     // Gestisce le richieste GET su "/api/tickets?id={id}" per ottenere un ticket specifico.
     @GetMapping("/{id}")
     public Ticket getTicket(@RequestParam int id){
@@ -76,7 +70,11 @@ public class TicketController {
         ticketService.deleteTicket(id); // Chiama il servizio per eliminare il ticket con l'ID specificato.
     }
 
-
+    // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
+    @GetMapping("/abusi")
+    public List<Ticket> getAbusi() {
+        return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
+    }
 
     @PostMapping("/updateStatus/{id}")
     public RedirectView updateTicketStatus(@PathVariable int id, @RequestParam int status) {
@@ -98,7 +96,6 @@ public class TicketController {
             ticket.setResponse(response);
             ticket.setProgress(2); // Imposta lo stato del ticket a "Risolto= chiuso"
             ticketService.updateTicket(id, ticket);
-
         }
        // return "Response updated successfully";
         return new RedirectView("/helpdesk");
