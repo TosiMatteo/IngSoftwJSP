@@ -33,6 +33,7 @@ public class Ticket {
     // Relazione Many-to-One con User
     @ManyToOne(fetch = FetchType.LAZY) // Molti ticket possono appartenere a un singolo utente
     @JoinColumn(name = "user_id", referencedColumnName = "id") // user_id è la foreign key nella tabella ticket
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
 
     // Relazione One-to-One con Image
