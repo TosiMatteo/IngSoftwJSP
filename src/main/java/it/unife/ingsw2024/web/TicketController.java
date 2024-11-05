@@ -96,7 +96,6 @@ public class TicketController {
             ticket.setResponse(response);
             ticket.setProgress(2); // Imposta lo stato del ticket a "Risolto= chiuso"
             ticketService.updateTicket(id, ticket);
-
         }
        // return "Response updated successfully";
         return new RedirectView("/helpdesk");
