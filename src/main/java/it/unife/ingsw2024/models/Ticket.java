@@ -38,4 +38,8 @@ public class Ticket {
     @OneToOne(fetch = FetchType.LAZY) // Un ticket ha una sola immagine
     @JoinColumn(name = "image_id", referencedColumnName = "id") // image_id è la foreign key nella tabella ticket
     private Image image;
+
+    public void cambiaStatusTicket(int stato) {
+        this.progress = stato;
+    }
 }

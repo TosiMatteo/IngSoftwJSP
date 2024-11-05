@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -73,5 +74,55 @@ public class TicketController {
     @DeleteMapping("/{id}")
     public void deleteTicket(@PathVariable int id) {
         ticketService.deleteTicket(id); // Chiama il servizio per eliminare il ticket con l'ID specificato.
+    }
+
+
+
+    @PostMapping("/updateStatus/{id}")
+    public RedirectView updateTicketStatus(@PathVariable int id, @RequestParam int status) {
+        Ticket ticket = ticketService.getTicketById(id);
+
+        if (ticket != null) {
+            ticket.cambiaStatusTicket(status);
+            ticketService.updateTicket(id, ticket);
+        }
+
+        return new RedirectView("/helpdesk");
+    }
+
+    @PostMapping("/updateResponse/{id}")
+    public RedirectView updateTicketResponse(@PathVariable int id, @RequestParam String response) {
+        Ticket ticket = ticketService.getTicketById(id);
+
+        if (ticket != null) {
+            ticket.setResponse(response);
+            ticket.setProgress(2); // Imposta lo stato del ticket a "Risolto= chiuso"
+            ticketService.updateTicket(id, ticket);
+
+        }
+       // return "Response updated successfully";
+        return new RedirectView("/helpdesk");
+    }
+
+    @PostMapping("/addNewTicket")
+    public RedirectView addNewTicket( @RequestParam String userName, @RequestParam String userSurname, @RequestParam String userEmail, @RequestParam String phone, @RequestParam String topic, @RequestParam String argument, @RequestParam String detail) {
+        Ticket ticket = new Ticket();
+        //find user ID by name and surname and email
+        ticket.setTopic(topic);
+        ticket.setArgument(argument);
+        ticket.setDetail(detail);
+        ticket.setProgress(0); // Imposta lo stato del ticket a "In attesa"
+        if(userService.getUserByEmail(userEmail) == null){
+            User user = new User();
+            user.setFirstname(userName);
+            user.setSurname(userSurname);
+            user.setEmail(userEmail);
+            user.setPhone(phone);
+            userService.addUser(user);
+        }
+        ticket.setUser(userService.getUserByEmail(userEmail));
+        ticketService.addTicket(ticket);
+
+        return new RedirectView("/helpdesk");
     }
 }

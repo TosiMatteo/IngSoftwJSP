@@ -44,7 +44,7 @@
         <div class="container">
           <div class="inputForm">
             <label for="formEmail">Email</label>
-            <input type="email" id="formEmail" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
+            <input type="email" id="formEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
           </div>
           <div class="inputForm">
             <label for="formCellulare">Cellulare</label>
