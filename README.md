@@ -1,3 +1,3 @@
-# IngSw2024JSPTemplate
+# Servizio supporto utenti
 Template per utilizzare solo JSP, Java e Mysql
-# IngSoftwJSP
+# CC24

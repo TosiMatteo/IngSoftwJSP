@@ -1,9 +1,9 @@
-/*------------------------------------------- banner -----------------------------------------------------------------*/
-.banner {
+/*------------------------------------------- hero -----------------------------------------------------------------*/
+.hero {
     background-color: #EFEFEF;;
 }
 
-.sectionTitle {
+.containerTitle {
     gap: 8px;
     width: 100%;
     display: flex;
@@ -29,8 +29,8 @@ h2 {
     text-align:left;
 }
 
-/*container check+testo*/
-.checkBoxBanner {
+/*Container 3 check*/
+.checkBox {
     gap: 16px;
     display: flex;
     align-self: stretch;
@@ -39,8 +39,8 @@ h2 {
     align-items: flex-start;
 }
 
-/*container check*/
-.container {
+/*Container check*/
+.containerCheck {
     gap: 16px;
     display: flex;
     align-self: stretch;
@@ -48,41 +48,42 @@ h2 {
     justify-content: flex-start;
     align-items: center;
 }
-
-/*immagine check */
-.checkBanner {
+/*Stile immagine check */
+.checkImage {
     color: #007FFF;
+    /*dimensioni*/
     width: 18px;
     height: 18px;
 }
-
-/*formato testo*/
-.textBanner {
+/*Stile testo*/
+.textCheck {
     font-size: 18px;
     color: #007FFF;
 }
 
-/*immagine banner */
-.imgBanner {
+/*Stile immagine HERO */
+.imgHero {
     right: 0;
     top:0;
     bottom: 0;
     width: 452px;
     height: 100%;
+    /*L'elemento viene posizionato rispetto al suo primo elemento antenato posizionato (non statico)*/
     position: absolute;
+    /* imposta che non verrà ripetuta l'immagine di sfondo*/
     background-repeat: no-repeat;
+    /*dimensione di un'immagine di sfondo*/
     background-size: cover;
     background-image: url("../images/imgBanner.png");
     background-position: center;
+    /* bordi arrotondati all'angolo inferiore/superiore sinistro  */
     border-top-left-radius: 25%;
     border-bottom-left-radius: 25%;
     opacity: 90;
 }
 
-/*--------------------------------------------------- HERO ----------------------------------*/
-
-/*1 container testo-chat */
-.hero-chat {
+/*Container testo-chat */
+.containerSecond {
     display: flex;
     align-self: stretch;
     flex-direction: row;
@@ -90,27 +91,29 @@ h2 {
     justify-content: space-between;
 }
 
-/* ------------------- paragrafo ---------------- */
-/*2 container paragrafo chat */
+/* -------------------------------------------------- Paragrafo ---------------------------------------------------- */
+
+/*Container paragrafo */
 .containerParagrafo {
     width: 45%;
-    align-self: stretch;
 }
 
 /*formato testo titolo paragrafo */
-.titolo {
+.titoloParagrafo {
+    display: block;
     color: black;
     margin-bottom: 16px;
     font-size: 28px;
     line-height: 1.5;
     font-weight: 600;
+    text-align:left;
 }
 
-/*paragrafo*/
+/*Paragrafo*/
 p{
     margin-bottom: 16px;
 }
-/*testo in grassetto*/
+/*Stile testo in grassetto*/
 .bold {
     font-weight: 600;
 }
@@ -143,7 +146,12 @@ li {
     margin-top:8px;
 }
 
-/* ------------------- chat ------------------ */
+.hrDivider{
+    display: none;
+}
+
+/* ------------------------------------------------ chat ----------------------------------------------------------- */
+/*Container chat*/
 .containerChat {
     width: 45%;
     height: 528px;
@@ -169,19 +177,16 @@ li {
     font-size: 24px;
     font-weight: bold;
 }
-
 .imgChat {
     width: 24px;
     height: 24px;
     display: flex;
     align-self: center;
 }
-.hrDivider{
-    display: none;
-}
-/*------------------------------------------ FORM iniziale chat-----------------------------*/
 
-/*1 container form contenuto*/
+/*----------------------------------------------------- FORM iniziale chat -----------------------------------------*/
+
+/*Container form contenuto*/
 form {
     gap: 8px;
     width: 100%;
@@ -193,20 +198,18 @@ form {
     padding: 24px 32px;
 }
 
-/*2 container form dati da compilare*/
+/*Container form dati da compilare*/
 .containerForm {
     width: 100%;
     display: flex;
-    flex: 0 0 auto;
     overflow: auto;
     align-items: flex-start;
     flex-direction: column;
-
     height: 328px;
     gap: 16px;
 }
 
-/*3 - container label+input*/
+/*Container label+input*/
 .inputChat {
     gap: 8px;
     width: 100%;
@@ -273,7 +276,7 @@ a.linkPrivacy:active {
     color: blue;
 }
 
-hr {
+.dividerChat{
     width: 100%;
     height: 1px;
     background-color: #E1E1E1;
@@ -305,7 +308,7 @@ input[type=submit]:hover {
     margin-top: 20px;
 }
 
-/*------------ Per eventuali adattamenti (responsive web design) -------------*/
+/*-------------------------------------- Per eventuali adattamenti (responsive web design) --------------------------*/
 
 @media(max-width: 1200px) {
     .containerChat {
@@ -314,21 +317,19 @@ input[type=submit]:hover {
 }
 
 @media(max-width: 991px) {
-    .checkBanner {
+    .checkHero {
         width: 16px;
         height: 16px;
     }
-    .hero-chat {
+    .containerSecond {
         gap: 32px;
         flex-direction: column;
     }
     .containerParagrafo {
         width: 100%;
     }
-    .hero-button1 {
-        width: 50%;
-    }
     .hrDivider {
+        display: block;
         width: 100%;
         height: 2px;
         background-color: #EFEFEF;
@@ -336,7 +337,7 @@ input[type=submit]:hover {
     .containerChat {
         width: 100%;
     }
-    .imgBanner{
+    .imgHero{
         display:none;
     }
 }
@@ -352,7 +353,7 @@ input[type=submit]:hover {
     h2 {
         font-size: 21px;
     }
-    .textBanner {
+    .textHero {
         font-size: 16px;
     }
     input[type=submit] {
@@ -361,7 +362,6 @@ input[type=submit]:hover {
     .buttonFAQ {
         width: 100%;
     }
-
     form {
         padding: 16px;
     }

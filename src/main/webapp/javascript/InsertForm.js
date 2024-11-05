@@ -1,3 +1,4 @@
+// Aggiunge un listener che attende il caricamento completo del DOM prima di eseguire il codice
 document.addEventListener('DOMContentLoaded', function() {
     // Controllo dell'esistenza del modulo
     const form = document.getElementById('form');

@@ -23,7 +23,6 @@ h1 {
     max-width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
     overflow: hidden;
     position: relative;
 
@@ -35,6 +34,7 @@ h1 {
     align-self: flex-end;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 32px;
 }
 
 .image {
@@ -43,7 +43,6 @@ h1 {
 }
 
 /*Proprietà ticket: stile della fisarmonica:*/
-
 .ticketHeader {
     cursor: pointer;
     transition: 0.3s;
@@ -52,7 +51,6 @@ h1 {
     padding: 16px;
     width: 100%;
     outline: none;
-
     display: flex;
     align-self: stretch;
     flex-direction: row;
@@ -126,7 +124,6 @@ h3{
 }
 */
 
-
 .ticketBody {
     background-color: white;
     border: 2px solid #D2D2D2;
@@ -134,6 +131,7 @@ h3{
     display: none;
     padding: 16px;
     overflow: hidden;
+    margin-bottom: 32px;
 }
 
 .containerDati{
