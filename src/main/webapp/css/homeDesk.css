@@ -20,7 +20,7 @@ h1 {
 /*1 - container principale per filtro + ticket*/
 .ticket-container {
     width: 100%;
-    max-width: 1000px;
+    /*max-width: 1000px;*/
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -105,25 +105,6 @@ h3{
     background: #ffbfaa;
 }
 
-/*
-.statusInProgress {
-    padding: 8px 16px;
-    width: 250px;
-    border-radius: 4px;
-    color: yellow;
-    font-weight: 600;
-    background-color: #ffff9e;
-}
-.statusClose {
-    padding: 8px 16px;
-    width: 250px;
-    border-radius: 8px;
-    color: green;
-    font-weight: 600;
-    background-color: #95c799;
-}
-*/
-
 .ticketBody {
     background-color: white;
     border: 2px solid #D2D2D2;
@@ -154,6 +135,12 @@ h3{
 
 .strongTitle{
     color: black;
+    margin-right: 5px;
+}
+.strongTitleHeader{
+    display: flex;
+    align-items: center;
+
 }
 
 .elencoDati {
@@ -199,8 +186,8 @@ input[type=submit]:hover {
     gap: 8px;
     display: flex;
     align-self: flex-end;
-    align-items: center;
-    flex-direction: row;
+    align-items: initial;
+    flex-direction: column;
     margin-top: 64px;
 }
 

@@ -23,14 +23,20 @@ public class TicketController {
     private UserService userService; // Iniettato per recuperare l'utente tramite ID
 
     // Gestisce le richieste GET su "/api/tickets" per ottenere tutti i ticket.
-    @GetMapping
-    public List<Ticket> getTickets() {
+    @GetMapping()
+    public List<Ticket> getTickets(){
         return ticketService.getAllTickets(); // Chiama il servizio per ottenere la lista di tutti i ticket.
+    }
+
+    // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
+    @GetMapping("/abusi")
+    public List<Ticket> getAbusi() {
+        return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
     }
 
     // Gestisce le richieste GET su "/api/tickets?id={id}" per ottenere un ticket specifico.
     @GetMapping("/{id}")
-    public Ticket getTicket(@RequestParam int id) {
+    public Ticket getTicket(@RequestParam int id){
         return ticketService.getTicketById(id); // Chiama il servizio per ottenere un ticket specifico in base all'ID.
     }
 
@@ -80,6 +86,42 @@ public class TicketController {
             ticket.cambiaStatusTicket(status);
             ticketService.updateTicket(id, ticket);
         }
+
+        return new RedirectView("/helpdesk");
+    }
+
+    @PostMapping("/updateResponse/{id}")
+    public RedirectView updateTicketResponse(@PathVariable int id, @RequestParam String response) {
+        Ticket ticket = ticketService.getTicketById(id);
+
+        if (ticket != null) {
+            ticket.setResponse(response);
+            ticket.setProgress(2); // Imposta lo stato del ticket a "Risolto= chiuso"
+            ticketService.updateTicket(id, ticket);
+
+        }
+       // return "Response updated successfully";
+        return new RedirectView("/helpdesk");
+    }
+
+    @PostMapping("/addNewTicket")
+    public RedirectView addNewTicket( @RequestParam String userName, @RequestParam String userSurname, @RequestParam String userEmail, @RequestParam String phone, @RequestParam String topic, @RequestParam String argument, @RequestParam String detail) {
+        Ticket ticket = new Ticket();
+        //find user ID by name and surname and email
+        ticket.setTopic(topic);
+        ticket.setArgument(argument);
+        ticket.setDetail(detail);
+        ticket.setProgress(0); // Imposta lo stato del ticket a "In attesa"
+        if(userService.getUserByEmail(userEmail) == null){
+            User user = new User();
+            user.setFirstname(userName);
+            user.setSurname(userSurname);
+            user.setEmail(userEmail);
+            user.setPhone(phone);
+            userService.addUser(user);
+        }
+        ticket.setUser(userService.getUserByEmail(userEmail));
+        ticketService.addTicket(ticket);
 
         return new RedirectView("/helpdesk");
     }

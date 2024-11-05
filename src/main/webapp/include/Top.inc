@@ -1,10 +1,11 @@
+<!------------------------------------------- Blocco introduttivo (testata) ------------------------------------------->
 <header>
+
+    <!-------------------------------------------- Navigation Bar ---------------------------------------------------->
     <div class="paddingNavbar">
         <img alt="Logo" src="/images/logoHeader.png" class="logoNavbar" />
 
-        <!---------------------------------------- MENU desktop ---------------------------------------------------------->
-
-        <!--sezione di navigazione -->
+        <!-- Sezione di navigazione - MENU (desktop) -->
         <nav class="linkNavbar">
             <a href="https://www.codecrusaders.com/home">
                 <span class="textNavbar">Home</span>
@@ -27,10 +28,11 @@
             </a>
         </nav>
 
-        <!-------------------------- MENU con logo + icona hamburger Menu (mobile) ----------------------------------------->
+        <!-- Mobile Navigation Menu (vertical) -->
+        <!-- Menu hamburger (mobile) -->
         <div class="navbar-burger-menu" onclick="openingMenu()">
 
-            <!-- SVG scaricato da Google fonts -->
+            <!-- SVG scaricato da Google fonts - Icona Menu Hamburger -->
             <svg xmlns="http://www.w3.org/2000/svg"
                  height="48px"
                  viewBox="0 -960 960 960"
@@ -40,10 +42,10 @@
                 <path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
             </svg>
         </div>
+
     </div>
 
-    <!-------------------------------------- MENU con link (mobile) --------------------------------->
-
+    <!-- Sezione di navigazione - MENU (mobile) -->
     <nav class="navbar-links-mobile" id="myLinks">
         <a href="https://www.codecrusaders.com/home">
             <span class="textNavbar">Home</span>
@@ -65,7 +67,6 @@
             <span class="textNavbar">Account</span>
         </a>
     </nav>
-   </div>
 
 </header>
 
