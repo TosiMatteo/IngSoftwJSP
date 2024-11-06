@@ -146,12 +146,21 @@
                             <div class="containerDati">
                                 <div class="colonna">
                                     <strong class="strongTitle">Dati personali</strong>
+
                                     <div class="elencoDati">
-                                        <span> Nome: <%= ticket.getUser().getFirstname()%></span>
+                                        <% if (ticket.getUser() != null) { %>
+                                        <span> Nome: <%=ticket.getUser().getFirstname()%> </span>
                                         <span> Cognome: <%=ticket.getUser().getSurname()%> </span>
                                         <span> Email: <%=ticket.getUser().getEmail()%> </span>
                                         <span> Cellulare: <%=ticket.getUser().getPhone()%></span>
+                                        <% } else { %>
+                                        <span> Nome: N/A </span>
+                                        <span> Cognome: N/A </span>
+                                        <span> Email: N/A </span>
+                                        <span> Cellulare: N/A </span>
+                                        <% } %>
                                     </div>
+
                                 </div>
                                 <div class="colonna">
                                     <strong class="strongTitle">Richiesta di assistenza</strong>
@@ -200,8 +209,6 @@
                                     <button type="submit">Annulla Chiusura</button>
                                 </form>
                             </div>
-
-
                         </div>
                     </div>
                     <% } %>
