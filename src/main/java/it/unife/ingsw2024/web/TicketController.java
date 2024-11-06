@@ -91,11 +91,11 @@ public class TicketController {
     }
 
     @PostMapping("/updateResponse/{id}")
-    public RedirectView updateTicketResponse(@PathVariable int id, @RequestParam String response) {
+    public RedirectView updateTicketResponse(@PathVariable int id, @RequestParam String textAnswer) {
         Ticket ticket = ticketService.getTicketById(id);
 
         if (ticket != null) {
-            ticket.setResponse(response);
+            ticket.setResponse(textAnswer);
             ticket.setProgress(2); // Imposta lo stato del ticket a "Risolto= chiuso"
             ticketService.updateTicket(id, ticket);
 

@@ -224,7 +224,6 @@
                                 <label for="textAnswer"></label>
                                 <textarea id="textAnswer" name="textAnswer" required
                                           placeholder="Scrivi la tua risposta qui..."></textarea>
-                                <input type="hidden" name="response" value="textAnswer"/>
                                 <input type="submit" value="Invia" aria-label="Risposta"/>
                             </form>
 
