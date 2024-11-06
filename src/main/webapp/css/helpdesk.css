@@ -195,3 +195,56 @@ input[type=submit]:hover {
 #log {
     margin-top: 16px;
 }
+
+.colourStatus {
+    display: inline-block; /* O flex */
+    width: 140px; /* Imposta una larghezza fissa */
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: #2F2F2F 2px solid;
+}
+
+.ticket {
+    margin-top: 4px;
+}
+
+.ticket-container {
+    border: #2F2F2F 1px solid;
+    border-radius: 10px;
+}
+
+.new-ticket-form {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px; /* Padding around the form */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the form */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    gap: 10px; /* Space between form elements */
+}
+
+.new-ticket-form div {
+    display: flex;
+    flex-direction: row;
+    flex-basis: calc(50% - 10px); /* Two items per row */
+}
+
+.new-ticket-form label {
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+}
+
+.new-ticket-form input[type="text"],
+.new-ticket-form input[type="number"],
+.new-ticket-form input[type="email"],
+.new-ticket-form textarea {
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 10px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 3px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+

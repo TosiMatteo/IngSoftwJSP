@@ -93,7 +93,7 @@
           </div>
 
           <!-------------------------------- FORM Chat -------------------------------->
-          <form name="formChat" id="formChat"  method="post" action="">
+          <form name="formChat" id="formChat"  method="post" action="api/tickets/addNewTicket">
 
             <div class="containerForm">
               <span>Compila la richiesta e avvia la conversazione con l'operatore selezionando "Inizia chat".</span>
@@ -115,7 +115,7 @@
 
               <div class="inputChat">
                 <label for="formTopic">Tematica</label>
-                <select id="formTopic" name="tematica" required aria-required="true" aria-label="Seleziona la tematica">
+                <select id="formTopic" name="selectTematica" required aria-required="true" aria-label="Seleziona la tematica">
                   <option value="" disabled selected>Seleziona</option>
                   <option value="Funzioni del sito">Funzioni del sito</option>
                   <option value="Gestione dell'account">Gestione dell'account</option>
@@ -127,7 +127,7 @@
 
               <div class="inputChat">
                 <label for="formArgument">Argomento</label>
-                <select id="formArgument" name="argomento" required aria-required="true" aria-label="Seleziona l'argomento">
+                <select id="formArgument" name="selectArgomento" required aria-required="true" aria-label="Seleziona l'argomento">
                   <option value="" disabled selected>Seleziona</option>
                   <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
                   <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
@@ -154,6 +154,8 @@
             </div>
 
             <hr class="dividerChat">
+            <input type="hidden" name="telefono" value="000-000-0000">
+            <input type="hidden" name="dettagli" value="Ticket creato tramite chat">
 
             <input type="submit" value="Inizia chat" aria-label="Inizia chat con il supporto">
           </form>
@@ -171,7 +173,7 @@
 
 <%@ include file="../include/Footer.inc" %>
 
-<script src="../javascript/InsertChat.js"></script>
+<!-- <script src="../javascript/InsertChat.js"></script> -->
 <script src="../javascript/SelectForm.js"></script>
 
 </body>
