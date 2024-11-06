@@ -11,6 +11,7 @@
 <head>
     <%@ include file="../include/Head.inc" %>
     <link rel="stylesheet" href="css/helpdesk.css" type="text/css">
+    <link rel="stylesheet" href="css/form.css" type="text/css">
 
     <script>
         function filterTickets() {
@@ -86,26 +87,62 @@
             <div class="new-ticket-form">
                 <h2>Aggiungi un nuovo ticket</h2>
                 <form action="api/tickets/addNewTicket" method="post">
+
+                    <div class="inputForm">
                     <label for="userName">User Name:</label>
-                    <input type="text" id="userName" name="userName" required>
+                    <input type="text" id="userName" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
+                    </div>
 
+                    <div class="inputForm">
                     <label for="userSurname">User Surname:</label>
-                    <input type="text" id="userSurname" name="userSurname" required>
+                    <input type="text" id="userSurname" name="cognome" required maxlength="15" aria-label="Inserisci il tuo cognome">
+                    </div>
 
+                    <div class="inputForm">
                     <label for="userEmail">User Email:</label>
-                    <input type="email" id="userEmail" name="userEmail" required>
+                    <input type="email" id="userEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
+                    </div>
 
+                    <div class="inputForm">
                     <label for="phone">Telefono:</label>
-                    <input type="text" id="phone" name="phone" required maxlength="10">
+                    <input type="tel" id="phone" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
+                    </div>
 
+                    <div class="inputForm">
                     <label for="topic">Tematica:</label>
-                    <input type="text" id="topic" name="topic" required>
+                    <select id="topic" name="selectTematica" required>
+                        <!-- Opzioni selezionabili -->
+                        <option value="" disabled selected>Seleziona</option>
+                        <option value="Funzioni del sito">Funzioni del sito</option>
+                        <option value="Gestione dell'account">Gestione dell'account</option>
+                        <option value="Privacy e sicurezza">Privacy e sicurezza</option>
+                        <option value="Normative e segnalazioni">Normative e segnalazioni</option>
+                    </select>
+                    </div>
 
+                    <div class="inputForm">
                     <label for="argument">Argomento:</label>
-                    <input type="text" id="argument" name="argument" required>
+                    <select id="argument" name="selectArgomento" required>
+                        <option value="" disabled selected>Seleziona</option>
+                        <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
+                        <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
+                        <option value="Eliminare un evento" data-type="Funzioni del sito">Eliminare un evento</option>
+                        <option value="Accesso e password" data-type="Gestione dell'account">Accesso e password</option>
+                        <option value="Impostazioni account" data-type="Gestione dell'account">Impostazioni account</option>
+                        <option value="Disattivare o eliminare account" data-type="Gestione dell'account">Disattivare o eliminare account</option>
+                        <option value="Accesso e download dei tuoi dati" data-type="Privacy e sicurezza">Accesso e download dei tuoi dati</option>
+                        <option value="Protezione dell'account" data-type="Privacy e sicurezza">Protezione dell'account</option>
+                        <option value="Richiesta di rimozione legale" data-type="Privacy e sicurezza">Richiesta di rimozione legale</option>
+                        <option value="Accesso e download delle nostre normative" data-type="Normative e segnalazioni">Accesso e download delle nostre normative</option>
+                        <option value="Segnalare contenuti offensivi" data-type="Normative e segnalazioni">Segnalare contenuti offensivi</option>
+                        <option value="Segnalare un problema" data-type="Normative e segnalazioni">Segnalare un problema</option>
+                    </select>
+                    </div>
 
+                    <div class="inputForm">
                     <label for="detail">Dettagli:</label>
-                    <input type="text" id="detail" name="detail" required maxlength="50">
+                    <textarea id="detail" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
+                    </div>
 
                     <input type="submit" value="Aggiungi Ticket">
                 </form>

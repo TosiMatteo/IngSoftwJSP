@@ -27,7 +27,7 @@
       </header>
 
       <!-- Form contatto -->
-      <form id="form" name="form" method="post" action="/api/users">
+      <form id="form" name="form" method="post" action="api/tickets/addNewTicket">
 
         <div class="container">
           <div class="inputForm">
@@ -48,7 +48,7 @@
           </div>
           <div class="inputForm">
             <label for="formCellulare">Cellulare</label>
-            <input type="tel" id="formCellulare" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
+            <input type="tel" id="formCellulare" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
           </div>
         </div>
 
@@ -89,7 +89,7 @@
           <div class="inputForm100">
             <label for="formMessage">Aggiungi altri dettagli</label>
             <!-- Area per ereditare testi multiriga -->
-            <textarea id="formMessage" name="textarea" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
+            <textarea id="formMessage" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
           </div>
         </div>
 
@@ -128,7 +128,7 @@
 
 <%@ include file="../include/Footer.inc" %>
 
-<script src="../javascript/InsertForm.js"></script>
+<!-- <script src="../javascript/InsertForm.js"></script> -->
 <script src="../javascript/SelectForm.js"></script>
 
 </body>
