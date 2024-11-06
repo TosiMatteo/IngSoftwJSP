@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="false" %>
 
-<% String menuActiveLink = "homeDesk"; %>
+<% String menuActiveLink = "HelpDesk"; %>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -34,26 +34,21 @@
                     <div class="inputForm">
                     <label for="userName">User Name:</label>
                     <input type="text" id="userName" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
-                    </div>
 
-                    <div class="inputForm">
                     <label for="userSurname">User Surname:</label>
                     <input type="text" id="userSurname" name="cognome" required maxlength="15" aria-label="Inserisci il tuo cognome">
-                    </div>
 
-                    <div class="inputForm">
                     <label for="userEmail">User Email:</label>
                     <input type="email" id="userEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
-                    </div>
 
-                    <div class="inputForm">
+
                     <label for="phone">Telefono:</label>
                     <input type="tel" id="phone" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
                     </div>
 
                     <div class="inputForm">
-                    <label for="topic">Tematica:</label>
-                    <select id="topic" name="selectTematica" required>
+                    <label for="formTopic">Tematica:</label>
+                    <select id="formTopic" name="selectTematica" required>
                         <!-- Opzioni selezionabili -->
                         <option value="" disabled selected>Seleziona</option>
                         <option value="Funzioni del sito">Funzioni del sito</option>
@@ -61,11 +56,9 @@
                         <option value="Privacy e sicurezza">Privacy e sicurezza</option>
                         <option value="Normative e segnalazioni">Normative e segnalazioni</option>
                     </select>
-                    </div>
 
-                    <div class="inputForm">
-                    <label for="argument">Argomento:</label>
-                    <select id="argument" name="selectArgomento" required>
+                    <label for="formArgument">Argomento:</label>
+                    <select id="formArgument" name="selectArgomento" required>
                         <option value="" disabled selected>Seleziona</option>
                         <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
                         <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
@@ -203,6 +196,7 @@
 <%@ include file="../include/Footer_helpdesk.inc" %>
 
 <script src="../javascript/FiltroTickets.js"></script>
+<script src="../javascript/SelectForm.js"></script>
 
 <script>
     var acc = document.getElementsByClassName("ticketHeader");

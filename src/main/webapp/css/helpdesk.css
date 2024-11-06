@@ -228,7 +228,7 @@ input[type=submit]:hover {
 
 .new-ticket-form div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-basis: calc(50% - 10px); /* Two items per row */
 }
 
