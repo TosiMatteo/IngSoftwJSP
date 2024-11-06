@@ -113,7 +113,7 @@ public class TicketController {
         ticket.setTopic(selectTematica);
         ticket.setArgument(selectArgomento);
         ticket.setDetail(dettagli);
-        ticket.setProgress(0); // Imposta lo stato del ticket a "In attesa"
+        ticket.setProgress(0); // Imposta lo stato del ticket a "Da visionare"
         if(userService.getUserByEmail(email) == null){
             User user = new User();
             user.setFirstname(nome);
