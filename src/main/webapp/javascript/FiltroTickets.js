@@ -1,11 +1,14 @@
-
+//Funzione che consente di filtrare una serie di "ticket" in base al loro stato
 function filterTickets() {
     var filter = document.getElementById('ticketFilter').value;
-    console.log(filter);
+    console.log(filter); // Stampa il valore del filtro selezionato
     var tickets = document.querySelectorAll('.ticket');
+    // Scorre ciascun ticket per applicare il filtro
     tickets.forEach(function (ticket) {
+        // Ottiene lo stato del ticket dall'attributo 'data-status'
         var status = ticket.getAttribute('data-status');
         console.log("Ticket status:", status);
+        // Mostra o nasconde il ticket in base al filtro selezionato
         if (filter === 'tutti' || status === filter) {
             ticket.style.display = 'block';
         } else {
@@ -13,41 +16,3 @@ function filterTickets() {
         }
     });
 }
-
-function ticketsStatus(id) {
-    switch (id) {
-        case 0:
-            return "Da visionare";
-        case 1:
-            return "In corso";
-        case 2:
-            return "Chiuso";
-        default:
-            return "Errore";
-    }
-}
-
-function getStatusColor(id) {
-    switch (id) {
-        case 0:
-            return "green";
-        case 1:
-            return "orange";
-        case 2:
-            return "red";
-        default:
-            return "grey";
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.ticket').forEach(function (ticket) {
-        var status = parseInt(ticket.getAttribute('data-status'));
-        var statusText = ticketsStatus(status);
-        var statusColor = getStatusColor(status);
-
-        var colourStatusDiv = ticket.querySelector('.colourStatus');
-        colourStatusDiv.textContent = statusText;
-        colourStatusDiv.style.backgroundColor = statusColor;
-    });
-});
