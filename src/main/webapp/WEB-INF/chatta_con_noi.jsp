@@ -15,64 +15,64 @@
 
 <%@ include file="../include/Top.inc" %>
 
-<!------------------------------- Contenuto principale: MAIN ----------------------------->
+<!----------------------------------- Contenuto principale: MAIN ------------------------------------------------------>
 <main>
-  <div class="banner thq-section-padding">
+
+  <!---------------------------------------------- Sezione HERO ------------------------------------------------------>
+  <section class="hero thq-section-padding">
     <div class="thq-flex-column thq-section-max-width">
 
-      <div class="sectionTitle">
+      <div class="containerTitle">
         <h1>Chatta con noi</h1>
         <h2>Chiedi aiuto all'operatore di Code Crusaders</h2>
       </div>
 
-      <div class="checkBoxBanner">
-        <div class="container">
-          <img src="../images/check.png" class="checkBanner" alt="Check" />
-          <span class="textBanner">Ottieni supporto immediato</span>
+      <div class="checkBox">
+        <div class="containerCheck">
+          <img src="../images/check.png" class="checkImage" alt="Check" />
+          <span class="textCheck">Ottieni supporto immediato</span>
         </div>
 
-        <div class="container">
-          <img src="../images/check.png" class="checkBanner" alt="Check" />
-          <span class="textBanner">Assistenza dal lunedì al sabato dalle ore 8.00 alle ore 20.00</span>
+        <div class="containerCheck">
+          <img src="../images/check.png" class="checkImage" alt="Check" />
+          <span class="textCheck">Assistenza dal lunedì al sabato dalle ore 8.00 alle ore 20.00</span>
         </div>
 
-        <div class="container">
-          <img src="../images/check.png" class="checkBanner" alt="Check" />
-          <span class="textBanner">Ricevi assistenza mirata in base alla tua richiesta</span>
+        <div class="containerCheck">
+          <img src="../images/check.png" class="checkImage" alt="Check" />
+          <span class="textCheck">Ricevi assistenza mirata in base alla tua richiesta</span>
         </div>
       </div>
     </div>
 
-    <div class="imgBanner" aria-hidden="true"></div>
-  </div>
+    <div class="imgHero" aria-hidden="true"></div>
+  </section>
 
-  <div class="thq-section-padding">
+  <!------------------------------------------ Sezione Chat ---------------------------------------------------------->
+  <section class="thq-section-padding">
     <div class="thq-flex-column thq-section-max-width">
 
-      <div class="hero-chat">
+      <div class="containerSecond">
 
-        <!-------------------------------Componente Paragrafo -------------------------------->
+        <!-- Componente Paragrafo -->
         <div class="containerParagrafo">
-          <h2 class="titolo">Come funziona la chat di Code Crusaders</h2>
-          <p>
-            Entrare in contatto con il mondo di Code Crusaders è semplice e immediato: ti basterà
+
+          <h2 class="titoloParagrafo">Come funziona la chat di Code Crusaders</h2>
+          <p>Entrare in contatto con il mondo di Code Crusaders è semplice e immediato: ti basterà
             <span class="bold">compilare la richiesta</span>
             coi tuoi dati personali e
             <span class="bold">selezionare la tematica</span>
             su cui vuoi ricevere assistenza (specificare Altro se non rientra tra le opzioni).
           </p>
-          <p>
-            Successivamente ti basterà
+          <p>Successivamente ti basterà
             <span class="bold">cliccare in basso sul pulsante "Inizia chat"</span>
             e utilizzare la nostra live chat per ricevere tutto il supporto di cui hai bisogno.
           </p>
-          <p>
-            Altrimenti <span class="bold">puoi consultare la sezione FAQ</span> per avere risposta alle domande più frequenti.
+          <p>Altrimenti <span class="bold">puoi consultare la sezione FAQ</span>
+            per avere risposta alle domande più frequenti.
           </p>
           <button onclick="window.location.href='https://www.codecrusaders.com/faq'" class="buttonFAQ" aria-label="Vai alla sezione FAQ">Vai a FAQ - Domande Frequenti</button>
-          <p>
-            Code Crusaders si riserva il diritto di terminare la chat in caso di conversazioni che:
-          </p>
+          <p>Code Crusaders si riserva il diritto di terminare la chat in caso di conversazioni che:</p>
           <ul>
             <li>Contengano linguaggio volgare, attacchi personali o sessuali, e offese di natura etnica, politica o religiosa;</li>
             <li>Includano spam o link a siti esterni;</li>
@@ -81,10 +81,10 @@
           </ul>
         </div>
 
-        <!-- Elemento hr con CSS (visibile solo su mobile) -->
+        <!-- Elemento hr (visibile solo su mobile) -->
         <hr class="hrDivider">
 
-        <!-------------------------------Componente Chat -------------------------------->
+        <!--Componente Chat -->
         <div class="containerChat">
 
           <div class="titleChat">
@@ -93,7 +93,8 @@
           </div>
 
           <!-------------------------------- FORM Chat -------------------------------->
-          <form name="formChat" id="formChat" action="" method="post">
+          <form name="formChat" id="formChat"  method="post" action="api/tickets/addNewTicket">
+
             <div class="containerForm">
               <span>Compila la richiesta e avvia la conversazione con l'operatore selezionando "Inizia chat".</span>
 
@@ -109,25 +110,24 @@
 
               <div class="inputChat">
                 <label for="formEmail">Email</label>
-                <input type="email" id="formEmail" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
+                <input type="email" id="formEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
               </div>
 
               <div class="inputChat">
                 <label for="formTopic">Tematica</label>
-                <select id="formTopic" name="tematica" required aria-required="true" aria-label="Seleziona la tematica">
+                <select id="formTopic" name="selectTematica" required aria-required="true" aria-label="Seleziona la tematica">
                   <option value="" disabled selected>Seleziona</option>
                   <option value="Funzioni del sito">Funzioni del sito</option>
                   <option value="Gestione dell'account">Gestione dell'account</option>
-                  <option value="Privacy, sicurezza e report">Privacy, sicurezza e report</option>
-                  <option value="Condizioni e normative">Condizioni e normative</option>
+                  <option value="Privacy e sicurezza">Privacy, sicurezza e report</option>
+                  <option value="Normative e segnalazioni">Condizioni e normative</option>
                   <option value="Altro">Altro</option>
                 </select>
               </div>
 
               <div class="inputChat">
                 <label for="formArgument">Argomento</label>
-                <select id="formArgument" name="argomento" required aria-required="true" aria-label="Seleziona l'argomento">
-                  <option value="" disabled selected>Seleziona</option>
+                <select id="formArgument" name="selectArgomento" required aria-required="true" aria-label="Seleziona l'argomento">
                   <option value="" disabled selected>Seleziona</option>
                   <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
                   <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
@@ -147,14 +147,15 @@
               <div class="containerCheckbox">
                 <input type="checkbox" id="formCheck2" name="check" value="check" required aria-required="true" aria-label="Accetta l'informativa sulla privacy">
                 <label for="formCheck2">
-                  Ho preso visione dell'
-                  <a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa sulla Privacy</a>
+                  Ho preso visione dell'<a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa sulla Privacy</a>
                   e compreso che tutte le informazioni che fornirò saranno utilizzate esclusivamente per ottimizzare il supporto offertomi dal Servizio Clienti.
                 </label>
               </div>
             </div>
 
-            <hr>
+            <hr class="dividerChat">
+            <input type="hidden" name="telefono" value="000-000-0000">
+            <input type="hidden" name="dettagli" value="Ticket creato tramite chat">
 
             <input type="submit" value="Inizia chat" aria-label="Inizia chat con il supporto">
           </form>
@@ -167,12 +168,12 @@
          </div>
         </div>
       </div>
-    </div>
+    </section>
 </main>
 
 <%@ include file="../include/Footer.inc" %>
 
-<script src="../javascript/InsertChat.js"></script>
+<!-- <script src="../javascript/InsertChat.js"></script> -->
 <script src="../javascript/SelectForm.js"></script>
 
 </body>

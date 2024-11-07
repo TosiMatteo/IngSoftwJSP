@@ -32,7 +32,7 @@ public class PageController {
 
     @RequestMapping("/helpdesk")
     public String helpdesk(Model model) {
-        model.addAttribute("Tickets", this.ticketService.getAllTickets());
+        model.addAttribute("tickets",this.ticketService.getAllTickets());
         return "helpdesk";
     }
 }

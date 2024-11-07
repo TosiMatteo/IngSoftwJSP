@@ -20,18 +20,19 @@
   <div class="thq-section-padding">
     <div class="thq-flex-column thq-section-max-width">
 
-      <!-- Titoli principali della sezione -->
-      <header class="sectionTitle">
+      <!-- Titolo principale -->
+      <header class="containerTitle">
         <h1>Contattaci</h1>
         <h2>Descrivici la tua esigenza! Ti risponderemo nel minor tempo possibile</h2>
       </header>
 
       <!-- Form contatto -->
-      <form id="form" name="form" method="post" action="/api/users">
+      <form id="form" name="form" method="post" action="api/tickets/addNewTicket">
 
         <div class="container">
           <div class="inputForm">
             <label for="formNome">Nome</label>
+            <!--Campo di input a riga singola per l'immissione di testo -->
             <input type="text" id="formNome" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
           </div>
           <div class="inputForm">
@@ -43,18 +44,20 @@
         <div class="container">
           <div class="inputForm">
             <label for="formEmail">Email</label>
-            <input type="email" id="formEmail" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
+            <input type="email" id="formEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
           </div>
           <div class="inputForm">
             <label for="formCellulare">Cellulare</label>
-            <input type="tel" id="formCellulare" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
+            <input type="tel" id="formCellulare" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
           </div>
         </div>
 
         <div class="container">
           <div class="inputForm">
             <label for="formTopic">Tematica</label>
+            <!-- Definisce un elenco a discesa -->
             <select id="formTopic" name="selectTematica" required>
+              <!-- Opzioni selezionabili -->
               <option value="" disabled selected>Seleziona</option>
               <option value="Funzioni del sito">Funzioni del sito</option>
               <option value="Gestione dell'account">Gestione dell'account</option>
@@ -85,12 +88,14 @@
         <div class="container">
           <div class="inputForm100">
             <label for="formMessage">Aggiungi altri dettagli</label>
-            <textarea id="formMessage" name="textarea" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
+            <!-- Area per ereditare testi multiriga -->
+            <textarea id="formMessage" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
           </div>
         </div>
 
         <div class="container">
           <div class="inputForm100">
+            <!-- Campo di selezione file e un pulsante "Sfoglia" per il caricamento dei file -->
             <label for="formFile">Allegato (facoltativo)</label>
             <input type="file" id="formFile" name="file" accept="image/*" aria-label="Carica un file immagine se necessario">
           </div>
@@ -98,17 +103,17 @@
 
         <div class="checkContainer">
           <span class="bold">Informativa al trattamento dei dati personali</span>
-          <p>I dati che stai fornendo saranno trattati da Code Crusaders in linea con quanto indicato nell'
-            <a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa</a>
+          <p>I dati che stai fornendo saranno trattati da Code Crusaders in linea con quanto indicato nell'<a href="https://www.codecrusaders.com/informativa-privacy" class="linkPrivacy">Informativa</a>
             sul trattamento dei dati personali.
           </p>
           <div class="containerCheckbox">
+            <!-- Casella di controllo a due stati (checked, not checked)-->
             <input type="checkbox" id="formCheck" name="check" required value="check" aria-label="Accetta i termini e le condizioni"/>
             <label for="formCheck">Ho preso visione dell' Informativa e do il consenso.</label>
           </div>
         </div>
 
-        <!-- Pulsante invia -->
+        <!-- Pulsante invia - sottomette la form-->
         <input type="submit" value="Invia la tua richiesta" aria-label="Invia la tua richiesta">
       </form>
 
@@ -123,7 +128,7 @@
 
 <%@ include file="../include/Footer.inc" %>
 
-<script src="../javascript/InsertForm.js"></script>
+<!-- <script src="../javascript/InsertForm.js"></script> -->
 <script src="../javascript/SelectForm.js"></script>
 
 </body>

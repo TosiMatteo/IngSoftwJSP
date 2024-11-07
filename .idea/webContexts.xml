@@ -5,7 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/chatta_con_noi.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/form.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/homeDesk.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/helpdesk.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" value="file://$PROJECT_DIR$/src/main" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/view.jsp" value="file://$PROJECT_DIR$/src/main" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/supporto.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
