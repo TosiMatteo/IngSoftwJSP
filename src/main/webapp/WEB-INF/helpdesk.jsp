@@ -31,7 +31,6 @@
                 <h2>Aggiungi un nuovo ticket</h2>
                 <form action="api/tickets/addNewTicket" method="post">
 
-                    <div class="inputForm">
                     <label for="userName">User Name:</label>
                     <input type="text" id="userName" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
 
@@ -44,9 +43,7 @@
 
                     <label for="phone">Telefono:</label>
                     <input type="tel" id="phone" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
-                    </div>
 
-                    <div class="inputForm">
                     <label for="formTopic">Tematica:</label>
                     <select id="formTopic" name="selectTematica" required>
                         <!-- Opzioni selezionabili -->
@@ -73,12 +70,9 @@
                         <option value="Segnalare contenuti offensivi" data-type="Normative e segnalazioni">Segnalare contenuti offensivi</option>
                         <option value="Segnalare un problema" data-type="Normative e segnalazioni">Segnalare un problema</option>
                     </select>
-                    </div>
 
-                    <div class="inputForm">
                     <label for="detail">Dettagli:</label>
                     <textarea id="detail" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
-                    </div>
 
                     <input type="submit" value="Aggiungi Ticket">
                 </form>
