@@ -110,7 +110,7 @@
 
               <div class="inputChat">
                 <label for="formEmail">Email</label>
-                <input type="email" id="formEmail" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
+                <input type="email" id="formEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required maxlength="30" class="textinput" aria-required="true" aria-label="Inserisci la tua email">
               </div>
 
               <div class="inputChat">
@@ -119,8 +119,8 @@
                   <option value="" disabled selected>Seleziona</option>
                   <option value="Funzioni del sito">Funzioni del sito</option>
                   <option value="Gestione dell'account">Gestione dell'account</option>
-                  <option value="Privacy, sicurezza e report">Privacy, sicurezza e report</option>
-                  <option value="Condizioni e normative">Condizioni e normative</option>
+                  <option value="Privacy e sicurezza">Privacy, sicurezza e report</option>
+                  <option value="Normative e segnalazioni">Condizioni e normative</option>
                   <option value="Altro">Altro</option>
                 </select>
               </div>
