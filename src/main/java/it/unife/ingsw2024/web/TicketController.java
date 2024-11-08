@@ -63,7 +63,7 @@ public class TicketController {
     // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
     @GetMapping("/abusi")
     public List<Ticket> getAbusi() {
-        return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi
+        return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi, requisito team abusi
     }
 
     @PostMapping("/updateStatus/{id}")
