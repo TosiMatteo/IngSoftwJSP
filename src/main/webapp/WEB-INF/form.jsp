@@ -27,7 +27,7 @@
       </header>
 
       <!-- Form contatto -->
-      <form id="form" name="form" method="post" action="api/tickets/addNewTicket">
+      <form id="form" name="form" method="post" action="api/tickets/addNewTicket" enctype="multipart/form-data">
 
         <div class="container">
           <div class="inputForm">
@@ -97,7 +97,7 @@
           <div class="inputForm100">
             <!-- Campo di selezione file e un pulsante "Sfoglia" per il caricamento dei file -->
             <label for="formFile">Allegato (facoltativo)</label>
-            <input type="file" id="formFile" name="file" accept="image/*" aria-label="Carica un file immagine se necessario">
+            <input type="file" id="formFile" name="formFile" accept="image/*" aria-label="Carica un file immagine se necessario">
           </div>
         </div>
 

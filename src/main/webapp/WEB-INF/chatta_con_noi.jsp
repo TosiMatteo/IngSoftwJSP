@@ -93,7 +93,7 @@
           </div>
 
           <!-------------------------------- FORM Chat -------------------------------->
-          <form name="formChat" id="formChat"  method="post" action="api/tickets/addNewTicket">
+          <form name="formChat" id="formChat"  method="post" action="api/tickets/addNewTicketWithoutImage">
 
             <div class="containerForm">
               <span>Compila la richiesta e avvia la conversazione con l'operatore selezionando "Inizia chat".</span>
