@@ -117,10 +117,6 @@
                     <button onclick="document.location='mailto:supporto@codecrusaders.it?subject=Qui%20metti%20oggetto%20&cc=esempio2@email.com&body=Qui%20metti%20messaggio'" class="buttonContact">Email</button>
                 </div>
 
-                <div class="containerLink">
-                    <span class="textButton">TECNICO</span>
-                    <button onclick="document.location='helpdesk'" class="buttonContact">tenico</button>
-                </div>
             </div>
         </div>
     </section>
