@@ -43,3 +43,8 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// Specifica la classe principale per il task bootRun
+bootRun {
+	mainClass = 'it.unife.ingsw2024.JspWebApplication'
+}
