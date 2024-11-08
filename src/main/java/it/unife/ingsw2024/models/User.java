@@ -21,7 +21,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Generazione automatica dell'ID
-    private int id;
+    private Integer id;
 
     private String firstname;
     private String surname;
@@ -29,6 +29,7 @@ public class User {
     private String phone;
 
     // Relazione One-to-Many con Ticket
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // Un utente può avere molti ticket
+    // Un utente può avere molti ticket
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 }

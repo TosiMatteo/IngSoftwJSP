@@ -9,4 +9,5 @@ public class JspWebApplication {
     public static void main(String[] args) {
         SpringApplication.run(JspWebApplication.class, args);
     }
+
 }

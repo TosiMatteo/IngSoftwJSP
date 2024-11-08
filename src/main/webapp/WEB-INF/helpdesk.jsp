@@ -1,12 +1,15 @@
 <%@ page import="it.unife.ingsw2024.models.Ticket" %>
 <%@ page import="java.util.List" %>
+<%@ page import="it.unife.ingsw2024.models.User" %>
+<%@ page import="it.unife.ingsw2024.utiliies.ImageUtility" %>
+<%@ page import="org.springframework.boot.autoconfigure.AutoConfigurationImportListener" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="false" %>
 
 <% String menuActiveLink = "HelpDesk"; %>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <%@ include file="../include/Head.inc" %>
@@ -28,76 +31,76 @@
             </header>
 
             <!-- Form per aggiungere un nuovo ticket -->
-            <form id="formNewTicket" name="formNewTicket" action="api/tickets/addNewTicket" method="post">
+            <form id="formNewTicket" name="formNewTicket" action="api/tickets/addNewTicketWithoutImage" method="post" enctype="multipart/form-data">
                 <!-- Sectioning root -->
                 <fieldset>
-                <!-- Nome gruppo -->
-                <legend>Aggiungi un nuovo ticket</legend>
-                <div class="container">
-                    <div class="inputForm">
-                        <label for="userName">Nome</label>
-                        <input type="text" id="userName" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
+                    <!-- Nome gruppo -->
+                    <legend>Aggiungi un nuovo ticket</legend>
+                    <div class="container">
+                        <div class="inputForm">
+                            <label for="userName">Nome</label>
+                            <input type="text" id="userName" name="nome" required maxlength="15" aria-label="Inserisci il tuo nome">
+                        </div>
+                        <div class="inputForm">
+                            <label for="userSurname">Cognome</label>
+                            <input type="text" id="userSurname" name="cognome" required maxlength="15" aria-label="Inserisci il tuo cognome">
+                        </div>
                     </div>
-                    <div class="inputForm">
-                        <label for="userSurname">Cognome</label>
-                        <input type="text" id="userSurname" name="cognome" required maxlength="15" aria-label="Inserisci il tuo cognome">
-                    </div>
-                </div>
 
-                <div class="container">
-                    <div class="inputForm">
-                        <label for="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                               required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
+                    <div class="container">
+                        <div class="inputForm">
+                            <label for="userEmail">Email</label>
+                            <input type="email" id="userEmail" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                   required maxlength="30" aria-label="Inserisci il tuo indirizzo email">
+                        </div>
+                        <div class="inputForm">
+                            <label for="phone">Cellulare</label>
+                            <input type="tel" id="phone" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
+                        </div>
                     </div>
-                    <div class="inputForm">
-                        <label for="phone">Cellulare</label>
-                        <input type="tel" id="phone" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                               required maxlength="12" placeholder="123-456-7890" aria-label="Inserisci il tuo numero di cellulare">
-                    </div>
-                </div>
 
-                <div class="container">
-                    <div class="inputForm">
-                        <label for="formTopic">Tematica</label>
-                        <select id="formTopic" name="selectTematica" required>
-                            <!-- Opzioni selezionabili -->
-                            <option value="" disabled selected>Seleziona</option>
-                            <option value="Funzioni del sito">Funzioni del sito</option>
-                            <option value="Gestione dell'account">Gestione dell'account</option>
-                            <option value="Privacy e sicurezza">Privacy e sicurezza</option>
-                            <option value="Normative e segnalazioni">Normative e segnalazioni</option>
-                        </select>
+                    <div class="container">
+                        <div class="inputForm">
+                            <label for="formTopic">Tematica</label>
+                            <select id="formTopic" name="selectTematica" required>
+                                <!-- Opzioni selezionabili -->
+                                <option value="" disabled selected>Seleziona</option>
+                                <option value="Funzioni del sito">Funzioni del sito</option>
+                                <option value="Gestione dell'account">Gestione dell'account</option>
+                                <option value="Privacy e sicurezza">Privacy e sicurezza</option>
+                                <option value="Normative e segnalazioni">Normative e segnalazioni</option>
+                            </select>
+                        </div>
+                        <div class="inputForm">
+                            <label for="formArgument">Argomento</label>
+                            <select id="formArgument" name="selectArgomento" required>
+                                <option value="" disabled selected>Seleziona</option>
+                                <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
+                                <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
+                                <option value="Eliminare un evento" data-type="Funzioni del sito">Eliminare un evento</option>
+                                <option value="Accesso e password" data-type="Gestione dell'account">Accesso e password</option>
+                                <option value="Impostazioni account" data-type="Gestione dell'account">Impostazioni account</option>
+                                <option value="Disattivare o eliminare account" data-type="Gestione dell'account">Disattivare o eliminare account</option>
+                                <option value="Accesso e download dei tuoi dati" data-type="Privacy e sicurezza">Accesso e download dei tuoi dati</option>
+                                <option value="Protezione dell'account" data-type="Privacy e sicurezza">Protezione dell'account</option>
+                                <option value="Richiesta di rimozione legale" data-type="Privacy e sicurezza">Richiesta di rimozione legale</option>
+                                <option value="Accesso e download delle nostre normative" data-type="Normative e segnalazioni">Accesso e download delle nostre normative</option>
+                                <option value="Segnalare contenuti offensivi" data-type="Normative e segnalazioni">Segnalare contenuti offensivi</option>
+                                <option value="Segnalare un problema" data-type="Normative e segnalazioni">Segnalare un problema</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="inputForm">
-                        <label for="formArgument">Argomento</label>
-                        <select id="formArgument" name="selectArgomento" required>
-                            <option value="" disabled selected>Seleziona</option>
-                            <option value="Aggiungere amici" data-type="Funzioni del sito">Aggiungere amici</option>
-                            <option value="Creare un evento" data-type="Funzioni del sito">Creare un evento</option>
-                            <option value="Eliminare un evento" data-type="Funzioni del sito">Eliminare un evento</option>
-                            <option value="Accesso e password" data-type="Gestione dell'account">Accesso e password</option>
-                            <option value="Impostazioni account" data-type="Gestione dell'account">Impostazioni account</option>
-                            <option value="Disattivare o eliminare account" data-type="Gestione dell'account">Disattivare o eliminare account</option>
-                            <option value="Accesso e download dei tuoi dati" data-type="Privacy e sicurezza">Accesso e download dei tuoi dati</option>
-                            <option value="Protezione dell'account" data-type="Privacy e sicurezza">Protezione dell'account</option>
-                            <option value="Richiesta di rimozione legale" data-type="Privacy e sicurezza">Richiesta di rimozione legale</option>
-                            <option value="Accesso e download delle nostre normative" data-type="Normative e segnalazioni">Accesso e download delle nostre normative</option>
-                            <option value="Segnalare contenuti offensivi" data-type="Normative e segnalazioni">Segnalare contenuti offensivi</option>
-                            <option value="Segnalare un problema" data-type="Normative e segnalazioni">Segnalare un problema</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="container">
-                    <div class="inputForm100">
-                        <label for="detail">Dettagli</label>
-                        <textarea id="detail" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
+                    <div class="container">
+                        <div class="inputForm100">
+                            <label for="detail">Dettagli</label>
+                            <textarea id="detail" name="dettagli" required maxlength="500" placeholder="Descrivi il tuo problema" aria-label="Aggiungi ulteriori dettagli sul problema"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Pulsante invia - sottomette la form -->
-                <input type="submit" value="Aggiungi Ticket">
+                    <!-- Pulsante invia - sottomette la form -->
+                    <input type="submit" value="Aggiungi Ticket">
                 </fieldset>
             </form>
 
@@ -122,6 +125,7 @@
                 <div class="ticketsContainer">
                     <!--Recupera un attributo chiamato "tickets" dall'oggetto request, che dovrebbe essere una lista di oggetti Ticket, e lo assegna alla variabile tickets -->
                     <% List<Ticket> tickets = (List<Ticket>) request.getAttribute("tickets");%>
+                    <% List<User> users = (List<User>) request.getAttribute("users");%>
                     <!-- Verifica se l'attributo "tickets" è presente e non è nullo -->
                     <% if (tickets != null) { %>
                     <!-- Ciclo for-each itererà su ogni oggetto Ticket presente nella lista tickets. All'interno del ciclo,
@@ -165,8 +169,27 @@
                                         <span>Tematica: <%=ticket.getTopic()%></span>
                                         <span>Argomento: <%= ticket.getArgument()%></span>
                                         <span>Dettagli: <%= ticket.getDetail()%></span>
-                                        <span>Allegato: <%= ticket.getImage()%></span>
                                     </div>
+                                </div>
+
+                                <div class="colonna">
+                                    <% if (ticket.getImage() != null) { %>
+                                    <strong class="strongTitle">Allegato</strong>
+                                    <div class="elencoDati">
+
+                                        <%
+                                            // Decompressione dell'immagine ed encode in base 64 per la visualizzazione sul web
+                                            byte[] decompressedImageData = ImageUtility.decompressImage(ticket.getImage().getImage_data());
+                                            String base64Image = ImageUtility.encodeImageToBase64(decompressedImageData);
+
+                                            // Prelevo il tipo dell'immagine
+                                            String mimeType = ticket.getImage().getImage_type();
+                                        %>
+
+                                        <!-- Spazio di caricamento dell'immagine -->
+                                        <img src="data:image/<%= mimeType %>;base64,<%= base64Image %>" height="250" width="450"/>
+                                    </div>
+                                    <% } %>
                                 </div>
 
                             </div>

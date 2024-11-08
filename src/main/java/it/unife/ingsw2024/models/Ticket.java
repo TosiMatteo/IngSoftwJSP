@@ -2,14 +2,14 @@ package it.unife.ingsw2024.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ticket")
@@ -21,24 +21,31 @@ public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Generazione automatica della chiave primaria
-    private int number;
+    private Integer number;
 
     private String topic;
     private String argument;
     private String detail;
-    private int progress;
-    private Date date;
+    private Integer progress;
+    private LocalDateTime date;
     private String response;
 
+
     // Relazione Many-to-One con User
-    @ManyToOne(fetch = FetchType.LAZY) // Molti ticket possono appartenere a un singolo utente
-    @JoinColumn(name = "user_id", referencedColumnName = "id") // user_id è la foreign key nella tabella ticket
+    // Molti ticket possono appartenere a un singolo utente
+    @ManyToOne(fetch = FetchType.LAZY)
+    // user_id è la foreign key nella tabella ticket
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ToString.Exclude
     private User user;
 
     // Relazione One-to-One con Image
-    @OneToOne(fetch = FetchType.LAZY) // Un ticket ha una sola immagine
-    @JoinColumn(name = "image_id", referencedColumnName = "id") // image_id è la foreign key nella tabella ticket
+    // Un ticket ha una sola immagine
+    @OneToOne(fetch = FetchType.LAZY)
+    // image_id è la foreign key nella tabella ticket
+    @JoinColumn(name = "image_id", referencedColumnName = "id")
+    @ToString.Exclude
     private Image image;
 
     public void cambiaStatusTicket(int stato) {

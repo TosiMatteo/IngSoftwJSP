@@ -8,41 +8,44 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service // Questa classe è un servizio che gestisce la logica di business per i ticket.
+@Service
+// Classi di "tipo" service, gestisce la logica di business relativa alla classe ticket.
 public class TicketService {
 
     @Autowired // Inietta il repository per accedere ai dati relativi ai ticket.
     private TicketRepository ticketRepository;
 
-    // Restituisce tutti i ticket dalla tabella.
+    // Restituisce tutti i ticket della tabella nel DB per mezzo di repository
     public List<Ticket> getAllTickets() {
-        return ticketRepository.findAll(); // Chiama il repository per ottenere tutti i ticket dal database.
+        return ticketRepository.findAll();
     }
 
-    //restituisce tutti i ticket che hanno come tematica l'abuso
+    // Restituisce tutti i ticket della tabella che hanno come tematica "Contenuti offensivi"
     public List<Ticket> AbusiTicket() {
         return ticketRepository.findByArgument("Segnalare contenuti offensivi");
     }
 
-    // Restituisce un ticket specifico in base all'ID.
+    // Restituisce un ticket specifico sulla base dell'ID specificato
     public Ticket getTicketById(int id) {
-        Optional<Ticket> ticket = ticketRepository.findById(id); // Trova il ticket tramite il suo ID.
-        return ticket.orElse(null); // Restituisce il ticket se esiste, altrimenti null.
+        // Utilizzata la Optional class perchè il ticket cercato potrebbe non esistere.
+        // Se è presente nel DB viene restituito, altrimenti ritorna NULL
+        Optional<Ticket> ticket = ticketRepository.findById(id);
+        return ticket.orElse(null);
     }
 
-    // Aggiunge un nuovo ticket nel database.
+    // Aggiunge un nuovo ticket nel DB per mezzo di repository
     public void addTicket(Ticket ticket) {
-        ticketRepository.save(ticket); // Salva il nuovo ticket nel database.
+        ticketRepository.save(ticket);
     }
 
-    // Aggiorna un ticket esistente.
+    // Aggiorna un ticket esistente per mezzo di repository
     public void updateTicket(int id, Ticket ticket) {
-        ticketRepository.save(ticket); // Salva il ticket aggiornato nel database.
+        ticketRepository.save(ticket);
     }
 
-    // Elimina un ticket in base all'ID.
+    // Elimina un ticket in base all'ID per mezzo di repository
     public void deleteTicket(int id) {
-        ticketRepository.deleteById(id); // Elimina il ticket dal database tramite il suo ID.
+        ticketRepository.deleteById(id);
     }
 
 }

@@ -53,7 +53,7 @@ CREATE TABLE `ticket` (
   `argument` varchar(50) DEFAULT NULL,
   `detail` varchar(500) NOT NULL,
   `progress` int NOT NULL DEFAULT '0',
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `image_id` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `response` varchar(500) DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,'Condizioni e normative','Segnalare un problema','ttt',0,'2024-10-09',NULL,NULL,NULL),(2,'Funzioni del sito','Il tuo profilo','tttttttttttttttttttttttt',0,'2024-10-09',NULL,33,NULL),(3,'Condizioni e normative','Accesso e download delle tue informazioni','ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',0,'2024-10-09',NULL,34,NULL),(4,'Condizioni e normative','Segnalare un problema','sono snurato',0,'2024-10-10',NULL,35,NULL),(5,'Funzioni del sito','Impostazioni account','prova1',0,'2024-10-10',NULL,31,NULL),(6,'Gestione dell\'account','La tua privacy','prova2',0,'2024-10-10',NULL,31,NULL),(7,'Funzioni del sito','Impostazioni account','tt',0,'2024-10-12',NULL,34,NULL),(8,'Altro','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(9,'Altro','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(10,'Funzioni del sito','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(11,'Gestione dell\'account','Aggiunta di amici','yyyyyyyyyyyyyy',0,'2024-10-12',NULL,34,NULL);
+INSERT INTO `ticket` VALUES (1,'Condizioni e normative','Segnalare un problema','ttt',0,'2024-10-09',NULL,31,NULL),(2,'Funzioni del sito','Il tuo profilo','tttttttttttttttttttttttt',0,'2024-10-09',NULL,33,NULL),(3,'Condizioni e normative','Accesso e download delle tue informazioni','ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',0,'2024-10-09',NULL,34,NULL),(4,'Condizioni e normative','Segnalare un problema','sono snurato',0,'2024-10-10',NULL,35,NULL),(5,'Funzioni del sito','Impostazioni account','prova1',0,'2024-10-10',NULL,31,NULL),(6,'Gestione dell\'account','La tua privacy','prova2',0,'2024-10-10',NULL,31,NULL),(7,'Funzioni del sito','Impostazioni account','tt',0,'2024-10-12',NULL,34,NULL),(8,'Altro','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(9,'Altro','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(10,'Funzioni del sito','Segnalare un problema','ticket creato tramite chat',0,'2024-10-12',NULL,34,NULL),(11,'Gestione dell\'account','Aggiunta di amici','yyyyyyyyyyyyyy',0,'2024-10-12',NULL,34,NULL);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -82,11 +82,6 @@ UNLOCK TABLES;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_ticket` BEFORE INSERT ON `ticket` FOR EACH ROW BEGIN
-    SET NEW.date = CURRENT_DATE;
-END */;;
-DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;

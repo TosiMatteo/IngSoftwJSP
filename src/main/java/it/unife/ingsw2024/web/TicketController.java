@@ -1,17 +1,24 @@
 package it.unife.ingsw2024.web;
 
+import it.unife.ingsw2024.models.Image;
 import it.unife.ingsw2024.models.Ticket;
 import it.unife.ingsw2024.models.User;
+import it.unife.ingsw2024.services.ImageService;
 import it.unife.ingsw2024.services.TicketService;
 import it.unife.ingsw2024.services.UserService;
+import it.unife.ingsw2024.utiliies.ImageUtility;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @RestController // Indica che questa classe gestisce richieste REST e restituisce dati come JSON o XML.
 @RequestMapping("/api/tickets") // Imposta il prefisso "/api/tickets" per tutti gli endpoint di questo controller.
@@ -23,6 +30,11 @@ public class TicketController {
     @Autowired
     private UserService userService; // Iniettato per recuperare l'utente tramite ID
 
+    @Autowired
+    private ImageService imageService;
+    @Autowired
+    private ImageController imageController;
+
     // Gestisce le richieste GET su "/api/tickets" per ottenere tutti i ticket.
     @GetMapping()
     public List<Ticket> getTickets(){
@@ -33,29 +45,6 @@ public class TicketController {
     @GetMapping("/{id}")
     public Ticket getTicket(@RequestParam int id){
         return ticketService.getTicketById(id); // Chiama il servizio per ottenere un ticket specifico in base all'ID.
-    }
-
-    // Gestisce le richieste POST su "/api/tickets" per aggiungere un nuovo ticket.
-    @PostMapping
-    public ResponseEntity<?> addTicket(@RequestBody Ticket ticket) {
-        if (ticket.getUser() == null || ticket.getUser().getId() == 0) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User ID mancante o non valido");
-        }
-
-        // Recupera l'utente in base all'ID
-        User user = userService.getUserById(ticket.getUser().getId());
-
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Utente non trovato");
-        }
-
-        // Associa l'utente al ticket
-        ticket.setUser(user);
-
-        // Salva il ticket
-        ticketService.addTicket(ticket);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(ticket);
     }
 
 
@@ -107,14 +96,26 @@ public class TicketController {
     }
 
     @PostMapping("/addNewTicket")
-    public RedirectView addNewTicket(@RequestParam String nome, @RequestParam String cognome, @RequestParam String email, @RequestParam String telefono, @RequestParam String selectTematica, @RequestParam String selectArgomento, @RequestParam String dettagli, HttpServletRequest request) {
+    public RedirectView addNewTicket(
+            @RequestParam String nome,
+            @RequestParam String cognome,
+            @RequestParam String email,
+            @RequestParam String telefono,
+            @RequestParam String selectTematica,
+            @RequestParam String selectArgomento,
+            @RequestParam String dettagli,
+            @RequestParam("formFile") MultipartFile image,
+            HttpServletRequest request)
+            throws IOException {
+
         Ticket ticket = new Ticket();
         //find user ID by name and surname and email
         ticket.setTopic(selectTematica);
         ticket.setArgument(selectArgomento);
         ticket.setDetail(dettagli);
         ticket.setProgress(0); // Imposta lo stato del ticket a "Da visionare"
-        if(userService.getUserByEmail(email) == null){
+        ticket.setDate(LocalDateTime.now());
+        if(userService.getUserByEmail(email) == null) {
             User user = new User();
             user.setFirstname(nome);
             user.setSurname(cognome);
@@ -122,7 +123,18 @@ public class TicketController {
             user.setPhone(telefono);
             userService.addUser(user);
         }
+
+        // Solo se viene effettivamente inserita un'immagine, carico la foto e
+        // la collego alla tabella ticket
+        if(!(image.isEmpty())) {
+            Integer imageID = imageController.updloadImage(image);
+            ticket.setImage(imageController.getImageById(imageID));
+        }
+
+        // Collego alla tabella ticket lo user
         ticket.setUser(userService.getUserByEmail(email));
+
+        // Aggiungo il ticket
         ticketService.addTicket(ticket);
 
         // Recupera l'URL della pagina precedente dall'intestazione 'Referer'
@@ -130,4 +142,42 @@ public class TicketController {
         return new RedirectView(previousUrl != null ? previousUrl : "/");
     }
 
+
+    @PostMapping("/addNewTicketWithoutImage")
+    public RedirectView addNewTicket(
+            @RequestParam String nome,
+            @RequestParam String cognome,
+            @RequestParam String email,
+            @RequestParam String telefono,
+            @RequestParam String selectTematica,
+            @RequestParam String selectArgomento,
+            @RequestParam String dettagli,
+            HttpServletRequest request) {
+
+        Ticket ticket = new Ticket();
+        //find user ID by name and surname and email
+        ticket.setTopic(selectTematica);
+        ticket.setArgument(selectArgomento);
+        ticket.setDetail(dettagli);
+        ticket.setProgress(0); // Imposta lo stato del ticket a "Da visionare"
+        ticket.setDate(LocalDateTime.now());
+        if(userService.getUserByEmail(email) == null) {
+            User user = new User();
+            user.setFirstname(nome);
+            user.setSurname(cognome);
+            user.setEmail(email);
+            user.setPhone(telefono);
+            userService.addUser(user);
+        }
+
+        // Collego alla tabella ticket lo user
+        ticket.setUser(userService.getUserByEmail(email));
+
+        // Aggiungo il ticket
+        ticketService.addTicket(ticket);
+
+        // Recupera l'URL della pagina precedente dall'intestazione 'Referer'
+        String previousUrl = request.getHeader("Referer");
+        return new RedirectView(previousUrl != null ? previousUrl : "/");
+    }
 }

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-
+    
     @Autowired
-    TicketService ticketService;
+    private TicketController ticketController;
 
     @RequestMapping({"/", "/supporto"})
     public String supporto(Model model) {
@@ -32,7 +32,7 @@ public class PageController {
 
     @RequestMapping("/helpdesk")
     public String helpdesk(Model model) {
-        model.addAttribute("tickets",this.ticketService.getAllTickets());
+        model.addAttribute("tickets", ticketController.getTickets());
         return "helpdesk";
     }
 }
