@@ -1,16 +1,11 @@
 package it.unife.ingsw2024.web;
 
-import it.unife.ingsw2024.models.Image;
 import it.unife.ingsw2024.models.Ticket;
 import it.unife.ingsw2024.models.User;
-import it.unife.ingsw2024.services.ImageService;
 import it.unife.ingsw2024.services.TicketService;
 import it.unife.ingsw2024.services.UserService;
-import it.unife.ingsw2024.utiliies.ImageUtility;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
@@ -18,7 +13,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 @RestController // Indica che questa classe gestisce richieste REST e restituisce dati come JSON o XML.
 @RequestMapping("/api/tickets") // Imposta il prefisso "/api/tickets" per tutti gli endpoint di questo controller.

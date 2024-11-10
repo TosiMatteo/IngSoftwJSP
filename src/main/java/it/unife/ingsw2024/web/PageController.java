@@ -1,6 +1,5 @@
 package it.unife.ingsw2024.web;
 
-import it.unife.ingsw2024.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

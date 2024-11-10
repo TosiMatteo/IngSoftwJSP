@@ -2,7 +2,6 @@ package it.unife.ingsw2024.web;
 
 
 import it.unife.ingsw2024.models.Image;
-import it.unife.ingsw2024.models.User;
 import it.unife.ingsw2024.services.ImageService;
 import it.unife.ingsw2024.utiliies.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;

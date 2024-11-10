@@ -3,8 +3,6 @@ package it.unife.ingsw2024.web;
 import it.unife.ingsw2024.models.User;
 import it.unife.ingsw2024.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

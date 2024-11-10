@@ -220,11 +220,13 @@
 
                             <!-- Gestione ticket chiusura -->
                             <div class="containerChiusura">
+                                <% if (ticket.getProgress() == 0) { %>
                                 <form action="/api/tickets/updateStatus/<%= ticket.getNumber() %>" method="post" >
                                     <!-- Campo di input nascosto -->
                                     <input type="hidden" name="status" value="2"/>
                                     <button class="buttonChiusura" type="submit">Chiusura ticket</button>
                                 </form>
+                                <% } %>
 
                                 <% if (ticket.getProgress() == 2) { %>
                                 <form action="/api/tickets/updateStatus/<%= ticket.getNumber() %>" method="post" >
