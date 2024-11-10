@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 // Classi di "tipo" service, gestisce la logica di business relativa alla classe utenti.
@@ -22,10 +21,7 @@ public class UserService {
 
     // Restituisce un utente specifico sulla base dell'ID specificato
     public User getUserById(int id) {
-        // Utilizzata la Optional class perchè l'utente cercato potrebbe non esistere.
-        // Se è presente nel DB viene restituito, altrimenti ritorna NULL
-        Optional<User> user = userRepository.findById(id);
-        return user.orElse(null);
+        return userRepository.findById(id).orElse(null);
     }
 
     // Aggiunge un nuovo utente nel DB per mezzo di repository

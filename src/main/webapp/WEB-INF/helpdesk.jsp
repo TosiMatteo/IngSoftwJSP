@@ -172,10 +172,12 @@
                                     </div>
                                 </div>
 
+                                <% if (ticket.getImage() != null) { %>
                                 <div class="colonna">
-                                    <% if (ticket.getImage() != null) { %>
                                     <strong class="strongTitle">Allegato</strong>
                                     <div class="elencoDati">
+
+                                        <a href="/api/images/downloadImage/<%=ticket.getImage().getId()%>" title="Download">Scarica: </a>
 
                                         <%
                                             // Decompressione dell'immagine ed encode in base 64 per la visualizzazione sul web
@@ -187,10 +189,11 @@
                                         %>
 
                                         <!-- Spazio di caricamento dell'immagine -->
-                                        <img src="data:image/<%= mimeType %>;base64,<%= base64Image %>" height="250" width="450"/>
+                                        <img src="data:image/<%= mimeType %>;base64,<%= base64Image %>" height="250" width="auto"/>
+
                                     </div>
-                                    <% } %>
                                 </div>
+                                <% } %>
 
                             </div>
 
@@ -222,10 +225,13 @@
                                     <input type="hidden" name="status" value="2"/>
                                     <button class="buttonChiusura" type="submit">Chiusura ticket</button>
                                 </form>
+
+                                <% if (ticket.getProgress() == 2) { %>
                                 <form action="/api/tickets/updateStatus/<%= ticket.getNumber() %>" method="post" >
                                     <input type="hidden" name="status" value="1"/>
                                     <button class="buttonChiusura" type="submit">Annulla Chiusura</button>
                                 </form>
+                                <% } %>
                             </div>
 
                         </div>

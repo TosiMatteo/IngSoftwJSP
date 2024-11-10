@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 // Classi di "tipo" service, gestisce la logica di business relativa alla classe ticket.
@@ -27,10 +26,7 @@ public class TicketService {
 
     // Restituisce un ticket specifico sulla base dell'ID specificato
     public Ticket getTicketById(int id) {
-        // Utilizzata la Optional class perchè il ticket cercato potrebbe non esistere.
-        // Se è presente nel DB viene restituito, altrimenti ritorna NULL
-        Optional<Ticket> ticket = ticketRepository.findById(id);
-        return ticket.orElse(null);
+        return ticketRepository.findById(id).orElse(null);
     }
 
     // Aggiunge un nuovo ticket nel DB per mezzo di repository

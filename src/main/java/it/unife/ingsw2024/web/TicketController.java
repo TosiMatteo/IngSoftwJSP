@@ -31,11 +31,10 @@ public class TicketController {
     private UserService userService; // Iniettato per recuperare l'utente tramite ID
 
     @Autowired
-    private ImageService imageService;
-    @Autowired
     private ImageController imageController;
 
     // Gestisce le richieste GET su "/api/tickets" per ottenere tutti i ticket.
+    // Metodo per inviare la lista dei ticket al gruppo FAQ
     @GetMapping()
     public List<Ticket> getTickets(){
         return ticketService.getAllTickets(); // Chiama il servizio per ottenere la lista di tutti i ticket.
@@ -61,6 +60,8 @@ public class TicketController {
     }
 
     // Gestisce richieste GET su "/api/tickets/abusi per ottenere tutti i ticket che hanno come tematica l'abuso
+    // Metodo per inviare la lista dei ticket che hanno come tema "Segnala contenuti
+    // offensivi" al gruppo di competenza
     @GetMapping("/abusi")
     public List<Ticket> getAbusi() {
         return ticketService.AbusiTicket(); //Chiama il servizio per ottenere la lista di tutti i ticket con argomento Segnalare contenuti offensivi, requisito team abusi
@@ -71,7 +72,7 @@ public class TicketController {
         Ticket ticket = ticketService.getTicketById(id);
 
         if (ticket != null) {
-            ticket.cambiaStatusTicket(status);
+            ticket.setProgress(status);
             ticketService.updateTicket(id, ticket);
         }
 

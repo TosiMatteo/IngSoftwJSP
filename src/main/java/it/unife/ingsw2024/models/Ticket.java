@@ -37,6 +37,7 @@ public class Ticket {
     // user_id è la foreign key nella tabella ticket
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    // Necessario per evitare loop infinito toString
     @ToString.Exclude
     private User user;
 
@@ -45,10 +46,8 @@ public class Ticket {
     @OneToOne(fetch = FetchType.LAZY)
     // image_id è la foreign key nella tabella ticket
     @JoinColumn(name = "image_id", referencedColumnName = "id")
+    // Necessario per evitare loop infinito toString
     @ToString.Exclude
     private Image image;
 
-    public void cambiaStatusTicket(int stato) {
-        this.progress = stato;
-    }
 }
