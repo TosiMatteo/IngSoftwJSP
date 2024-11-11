@@ -19,10 +19,15 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
-    // Restituisce tutti i ticket della tabella che hanno come tematica "Contenuti offensivi"
-    public List<Ticket> AbusiTicket() {
-        return ticketRepository.findByArgument("Segnalare contenuti offensivi");
-    }
+    // Restituisce tutti i ticket della tabella che hanno come tematica "Contenuti offensivi" e che non siano chiusi
+        public List<Ticket> AbusiTicket() {
+            return ticketRepository.findByArgumentAndProgressNot("Segnalare contenuti offensivi", 2).stream()
+                    .map(ticket -> {
+                        ticket.setImage(null); // Escludi image per evitare loop
+                        return ticket;
+                    })
+                    .toList();
+        }
 
     // Restituisce un ticket specifico sulla base dell'ID specificato
     public Ticket getTicketById(int id) {
